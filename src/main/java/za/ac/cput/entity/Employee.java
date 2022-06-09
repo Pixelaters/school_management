@@ -83,6 +83,17 @@ public class Employee {
             this.name = name;
             return this;
         }
+
+        public Builder copy(Employee e){
+            this.staffId = e.staffId;
+            this.email = e.email;
+            this.name = e.name;
+            return this;
+        }
+
+        public Employee build(){
+            return new Employee(this);
+        }
     }
 
 }

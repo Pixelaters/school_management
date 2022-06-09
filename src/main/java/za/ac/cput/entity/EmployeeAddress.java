@@ -72,5 +72,15 @@ public class EmployeeAddress {
             this.address = address;
             return this;
         }
+
+        public Builder copy(EmployeeAddress ea){
+            this.staffId = ea.staffId;
+            this.address = ea.address;
+            return this;
+        }
+
+        public EmployeeAddress build(){
+            return new EmployeeAddress(this);
+        }
     }
 }

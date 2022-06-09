@@ -1,5 +1,8 @@
 package za.ac.cput.entity;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Objects;
 
 /*Breyton Ernstzen (217203027)
@@ -7,10 +10,15 @@ import java.util.Objects;
   Date: 9 June 2022
   School Management
  */
+@Entity
 public class Employee {
+    @Id
     private String staffId;
+    @NotNull
     private String email;
-    private Name name;
+    @OneToOne
+    @JoinColumn(name = "emp_name",nullable = false)
+    private Name name;//Note this error *
 
     protected Employee(){
         //constructor

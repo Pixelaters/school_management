@@ -8,11 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @EnableAutoConfiguration
 public class school_management {
-    @RequestMapping("/")
-    String home(){
-        return "Hello World";
-    }
-
     public static void main(String[] args) {
         SpringApplication.run(school_management.class, args);
     }

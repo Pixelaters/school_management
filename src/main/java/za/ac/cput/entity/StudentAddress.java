@@ -1,4 +1,8 @@
 package za.ac.cput.entity;
+/*Name:Raeece Samuels(217283764)
+       StudentAddress.java
+
+* */
 
 public class StudentAddress {
     private final String studentId;

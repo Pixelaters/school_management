@@ -1,6 +1,7 @@
 package za.ac.cput.entity;
 
 /* Name: Raeece Samuels(217283764)
+    Student.java
 
  */
 

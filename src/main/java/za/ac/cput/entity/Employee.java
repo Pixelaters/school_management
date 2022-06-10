@@ -27,7 +27,7 @@ public class Employee {
     private Employee(Builder b){
         this.staffId = b.staffId;
         this.email = b.email;
-        this.name = b.name;
+        //this.name = b.name;
     }
 
     public String getStaffId() {
@@ -67,7 +67,6 @@ public class Employee {
     public static class Builder{
         private String staffId;
         private String email;
-        private Name name;
 
         public Builder staffId(String staffId) {
             this.staffId = staffId;
@@ -77,17 +76,12 @@ public class Employee {
         public Builder email(String email) {
             this.email = email;
             return this;
-        }
 
-        public Builder name(Name name) {
-            this.name = name;
-            return this;
         }
 
         public Builder copy(Employee e){
             this.staffId = e.staffId;
             this.email = e.email;
-            this.name = e.name;
             return this;
         }
 

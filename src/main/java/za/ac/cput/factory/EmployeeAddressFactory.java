@@ -10,12 +10,12 @@ import za.ac.cput.entity.EmployeeAddress;
  */
 public class EmployeeAddressFactory {
 
-    public static EmployeeAddress builder(String staffId, Address address){
+    public static EmployeeAddress builder(String staffId, Address getAddress){
         if(staffId.isEmpty())
             throw new IllegalArgumentException("Staff id cannot be empty");
         return new EmployeeAddress.Builder()
                 .staffId(staffId)
-                .address(address)
+                .address(getAddress)
                 .build();
 
     }

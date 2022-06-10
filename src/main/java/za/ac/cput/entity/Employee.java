@@ -68,6 +68,8 @@ public class Employee {
         private String staffId;
         private String email;
 
+        private Name name;
+
         public Builder staffId(String staffId) {
             this.staffId = staffId;
             return this;

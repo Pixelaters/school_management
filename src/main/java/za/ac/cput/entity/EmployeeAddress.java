@@ -17,7 +17,7 @@ public class EmployeeAddress {
 
     @Id private String staffId;
     @OneToOne
-    @JoinColumn(name = "emp_address",nullable = false)
+    //@JoinColumn(name = "emp_address",nullable = false)
     private Address address; //Note this error *
 
     protected EmployeeAddress(){
@@ -51,12 +51,12 @@ public class EmployeeAddress {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         EmployeeAddress that = (EmployeeAddress) o;
-        return staffId.equals(that.staffId);
+        return staffId.equals(that.staffId) && address.equals(that.address); //take out if it causes an error
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(staffId);
+        return Objects.hash(staffId,address);//take out if it causes an error
     }
 
     public static class Builder{

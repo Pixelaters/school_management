@@ -12,7 +12,7 @@ public class EmployeeAddressFactory {
 
     public static EmployeeAddress builder(String staffId, Address address){
         if(staffId.isEmpty())
-            throw new IllegalArgumentException("No staff id found");
+            throw new IllegalArgumentException("Staff id cannot be empty");
         return new EmployeeAddress.Builder()
                 .staffId(staffId)
                 .address(address)

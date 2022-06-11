@@ -40,7 +40,7 @@ public class Name  {
         return lastName;
     }
     @Override
-    public boolean equals(Object o) { // <7>
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Name that = (Name) o;

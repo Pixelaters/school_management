@@ -78,12 +78,12 @@ public class Employee {
         public Builder email(String email) {
             this.email = email;
             return this;
-
         }
 
         public Builder copy(Employee e){
             this.staffId = e.staffId;
             this.email = e.email;
+            this.name = e.getName();
             return this;
         }
 

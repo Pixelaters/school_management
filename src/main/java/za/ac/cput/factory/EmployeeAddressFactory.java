@@ -12,7 +12,7 @@ import za.ac.cput.helper.StringHelper;
 public class EmployeeAddressFactory {
 
     public static EmployeeAddress builder(String staffId){
-        StringHelper.checkStringParam("",staffId);
+        //StringHelper.checkStringParam("",staffId);
 
         if(staffId.isEmpty())
             throw new IllegalArgumentException("Staff id cannot be empty");

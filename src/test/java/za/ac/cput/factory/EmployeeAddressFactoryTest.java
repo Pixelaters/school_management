@@ -28,12 +28,12 @@ class EmployeeAddressFactoryTest {
     void builder() {
         employeeAddresses.add(ea1);
         System.out.println("Added: " + employeeAddresses.get(0));
-        employeeAddresses.add(ea2);
-        System.out.println("Added: " + employeeAddresses.get(1));
-        employeeAddresses.add(ea3);
-        System.out.println("Added: " + employeeAddresses.get(2));
-        employeeAddresses.add(ea4);
-        System.out.println("Added: " + employeeAddresses.get(3));
+        //employeeAddresses.add(ea2);
+        //System.out.println("Added: " + employeeAddresses.get(1));
+        //employeeAddresses.add(ea3);
+        //System.out.println("Added: " + employeeAddresses.get(2));
+        //employeeAddresses.add(ea4);
+        //System.out.println("Added: " + employeeAddresses.get(3));
 
         //checks if all staffId's are not null/empty
         for (EmployeeAddress employeeAddress : employeeAddresses) {

@@ -27,7 +27,7 @@ public class Employee {
     private Employee(Builder b){
         this.staffId = b.staffId;
         this.email = b.email;
-        //this.name = b.name;
+        this.name = b.name;
     }
 
     public String getStaffId() {
@@ -77,6 +77,11 @@ public class Employee {
 
         public Builder email(String email) {
             this.email = email;
+            return this;
+        }
+
+        public Builder name(Name name){
+            this.name = name;
             return this;
         }
 

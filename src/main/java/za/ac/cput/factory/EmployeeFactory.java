@@ -17,8 +17,6 @@ public class EmployeeFactory {
     private static final String validation = "^(.+)@(.+)$";
 
     public static Employee builder(String staffId, String email){
-        StringHelper.checkStringParam("",staffId);
-        StringHelper.checkStringParam("",email);
         //checks first if the conditions is met.
         //if no staff id is entered or invalid email is entered, it should throw an IllegalArgumentException
         if(staffId.isEmpty() || !email.matches(validation))

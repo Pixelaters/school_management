@@ -44,7 +44,13 @@ class EmployeeAddressFactoryTest {
 
     @Test
     void objectEquality(){
+        assertNotEquals(ea1.getStaffId(),ea2.getStaffId());
+        assertNotEquals(ea1.getStaffId(),ea3.getStaffId());
+        assertNotEquals(ea1.getStaffId(),ea4.getStaffId());
 
+        assertEquals(ea3,ea4);
+
+        System.out.println("Equality test passed successfully");
     }
 
     @Test

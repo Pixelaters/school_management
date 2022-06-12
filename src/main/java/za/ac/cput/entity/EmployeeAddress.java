@@ -75,7 +75,7 @@ public class EmployeeAddress {
 
         public Builder copy(EmployeeAddress ea){
             this.staffId = ea.staffId;
-            this.address = ea.address;
+            this.address = ea.getAddress();
             return this;
         }
 

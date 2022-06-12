@@ -3,6 +3,7 @@ package za.ac.cput.factory;
 import org.hibernate.validator.internal.constraintvalidators.bv.EmailValidator;
 import za.ac.cput.entity.Employee;
 import za.ac.cput.entity.Name;
+import za.ac.cput.helper.StringHelper;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -16,7 +17,6 @@ public class EmployeeFactory {
     private static final String validation = "^(.+)@(.+)$";
 
     public static Employee builder(String staffId, String email){
-
         //checks first if the conditions is met.
         //if no staff id is entered or invalid email is entered, it should throw an IllegalArgumentException
         if(staffId.isEmpty() || !email.matches(validation))
@@ -25,6 +25,7 @@ public class EmployeeFactory {
                 .staffId(staffId)
                 .email(email)
                 .build();
+
         }
     }
 

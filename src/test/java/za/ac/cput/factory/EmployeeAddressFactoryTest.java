@@ -55,6 +55,13 @@ class EmployeeAddressFactoryTest {
 
     @Test
     void objectIdentity(){
+        assertNotSame(ea1.getStaffId(),ea2.getStaffId());
+        assertNotSame(ea1.getStaffId(),ea3.getStaffId());
+        assertNotSame(ea1.getStaffId(),ea4.getStaffId());
+
+        assertSame(ea3,ea4);
+
+        System.out.println("Identity test passed successfully");
 
     }
 }

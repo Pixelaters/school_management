@@ -48,8 +48,10 @@ public class EmployeeAddress {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         EmployeeAddress that = (EmployeeAddress) o;
         return staffId.equals(that.staffId) && address.equals(that.address); //take out if it causes an error
     }
@@ -75,7 +77,7 @@ public class EmployeeAddress {
 
         public Builder copy(EmployeeAddress ea){
             this.staffId = ea.staffId;
-            this.address = ea.getAddress();
+            this.address = ea.address;
             return this;
         }
 

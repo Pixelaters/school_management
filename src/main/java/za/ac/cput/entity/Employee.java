@@ -53,8 +53,10 @@ public class Employee {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Employee employee = (Employee) o;
         return staffId.equals(employee.staffId);
     }
@@ -88,7 +90,7 @@ public class Employee {
         public Builder copy(Employee e){
             this.staffId = e.staffId;
             this.email = e.email;
-            this.name = e.getName();
+            this.name = e.name;
             return this;
         }
 

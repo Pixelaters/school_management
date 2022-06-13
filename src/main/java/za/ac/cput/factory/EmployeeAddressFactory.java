@@ -11,13 +11,12 @@ import za.ac.cput.helper.StringHelper;
  */
 public class EmployeeAddressFactory {
 
-    public static EmployeeAddress builder(String staffId){
-        //StringHelper.checkStringParam("",staffId);
+    public static EmployeeAddress builder(String staffId,Address address){
 
-        if(staffId.isEmpty())
-            throw new IllegalArgumentException("Staff id cannot be empty");
+        StringHelper.checkStringParam("staffId",staffId);
         return new EmployeeAddress.Builder()
                 .staffId(staffId)
+                .address(address)
                 .build();
 
     }

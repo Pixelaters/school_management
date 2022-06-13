@@ -16,11 +16,11 @@ import java.util.regex.Pattern;
 public class EmployeeFactory {
     private static final String validation = "^(.+)@(.+)$";
 
-    public static Employee builder(String staffId, String email){
+    public static Employee builder(String staffId, String email,Name name){
         //checks first if the conditions is met.
         //if no staff id is entered or invalid email is entered, it should throw an IllegalArgumentException
         if(staffId.isEmpty() || !email.matches(validation))
-            throw new IllegalArgumentException("Some details missing or invalid email(add '@' into your email)");
+            StringHelper.checkStringParam("",staffId);
         return new Employee.Builder()
                 .staffId(staffId)
                 .email(email)

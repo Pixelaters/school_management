@@ -23,16 +23,7 @@ public class Country {
 
 
 
-    public Country(String countryId, String countryName) {
-        this.countryId = countryId;
-        this.countryName = countryName;
-
-
-    }
-
-
-
-    public Country() {
+    protected Country(String countryId, String countryName) {
 
     }
 
@@ -61,7 +52,6 @@ public class Country {
                 ", countryName='" + countryName + '\'' +
                 '}';
     }
-
 
 //    public boolean equals(Objects o){
 //        if(this == o) return true;
@@ -94,7 +84,7 @@ public class Country {
 
         public Builder copy(Country c){
             this.countryId = c.countryId;
-            this.countryName = countryName;
+            this.countryName = c.countryName;
             return this;
         }
 

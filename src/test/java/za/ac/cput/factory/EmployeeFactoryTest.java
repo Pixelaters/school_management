@@ -5,6 +5,7 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.entity.Employee;
+import za.ac.cput.entity.Name;
 
 import java.util.ArrayList;
 
@@ -18,9 +19,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class EmployeeFactoryTest {
 
     ArrayList<Employee> employee = new ArrayList<Employee>();
-    private static final Employee employee1 = EmployeeFactory.builder("101A","dix@gmail.com");
-    private static final Employee employee2 = EmployeeFactory.builder("123B","jinx@gmail.com");
-    private static final Employee employee3 = EmployeeFactory.builder("131C","217203027@mycput.ac.za");
+    private static final Employee employee1 = EmployeeFactory.builder("101A","dix@gmail.com",null);
+    private static final Employee employee2 = EmployeeFactory.builder("123B","jinx@gmail.com",null);
+    private static final Employee employee3 = EmployeeFactory.builder("131C","217203027@mycput.ac.za",null);
     private static final Employee employee4 = employee3;
 
     @Test
@@ -30,6 +31,10 @@ class EmployeeFactoryTest {
         employee.add(employee2);
         System.out.println("Added: " + employee.get(1));
         assertNotNull(employee);
+        assertNull(employee1.getName());
+        assertNull(employee2.getName());
+        assertNull(employee3.getName());
+        assertNull(employee4.getName());
     }
 
     @Test

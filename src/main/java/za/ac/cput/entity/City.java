@@ -7,6 +7,8 @@ package za.ac.cput.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class City {
@@ -15,7 +17,10 @@ public class City {
     @Id
     private String id;
     private String name;
-    private Country country;
+
+    @OneToMany
+    @JoinColumn(name = "CountryName",nullable = false)
+    private Country country; //false error
 
     // Default constructor
     public City() {
@@ -42,31 +47,15 @@ public class City {
         return country;
     }
 
+
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
+    public boolean equals(Object o) {
+        if (this == o)
             return true;
-        if (obj == null)
+        if (o == null || getClass() != o.getClass())
             return false;
-        if (getClass() != obj.getClass())
-            return false;
-        City city = (City) obj;
-        if (country == null) {
-            if (city.country != null)
-                return false;
-        } else if (!country.equals(city.country))
-            return false;
-        if (id == null) {
-            if (city.id != null)
-                return false;
-        } else if (!id.equals(city.id))
-            return false;
-        if (name == null) {
-            if (city.name != null)
-                return false;
-        } else if (!name.equals(city.name))
-            return false;
-        return true;
+        City city = (City) o;
+        return id.equals(city.id);
     }
 
     @Override

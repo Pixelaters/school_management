@@ -2,6 +2,7 @@ package za.ac.cput.factory;
 
 import za.ac.cput.entity.Address;
 import za.ac.cput.entity.EmployeeAddress;
+import za.ac.cput.helper.StringHelper;
 
 /*Breyton Ernstzen (217203027)
   ADP3 - June Assessment 2022
@@ -10,12 +11,12 @@ import za.ac.cput.entity.EmployeeAddress;
  */
 public class EmployeeAddressFactory {
 
-    public static EmployeeAddress builder(String staffId, Address getAddress){
-        if(staffId.isEmpty())
-            throw new IllegalArgumentException("Staff id cannot be empty");
+    public static EmployeeAddress builder(String staffId,Address address){
+
+        StringHelper.checkStringParam("staffId",staffId);
         return new EmployeeAddress.Builder()
                 .staffId(staffId)
-                .address(getAddress)
+                .address(address)
                 .build();
 
     }

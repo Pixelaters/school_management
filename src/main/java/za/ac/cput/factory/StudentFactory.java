@@ -7,7 +7,7 @@ package za.ac.cput.factory;
 import za.ac.cput.entity.Name;
 import za.ac.cput.entity.Student;
 import za.ac.cput.helper.StringHelper;
-public class StudentFactory {
+public class  StudentFactory {
     public static Student build(String studentId, String email){
         StringHelper.checkStringParam("217283764",studentId);
         StringHelper.checkStringParam("Giannis@365.com",email);

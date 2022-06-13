@@ -1,22 +1,34 @@
 package za.ac.cput.entity;
 
+/*Ziyaad Petersen
+  ADP3 - June Assessment 2022
+  Date: 9 June 2022
+  School Management
+ */
+
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import java.util.Objects;
+import za.ac.cput.entity.City;
 
-//@Entity
 public class Address {
-    private final String unitNumber;
-    private final String complexName;
-    private final String streetNumber;
-    private final int postalCode;
-    //private final City city;
+    private String unitNumber;
+    private String complexName;
+    private String streetNumber;
+    private String streetName;
+    private int postalCode;
+    private City city;
 
+    protected Address() {
+    }
 
     public Address(Builder builder) {
         this.unitNumber = builder.unitNumber;
         this.complexName = builder.complexName;
         this.streetNumber = builder.streetNumber;
         this.postalCode = builder.postalCode;
+        this.city = builder.city;
+        this.streetName= builder.streetName;
     }
 
     public String getUnitNumber() {
@@ -35,6 +47,13 @@ public class Address {
         return postalCode;
     }
 
+    public String getStreetName() {
+        return streetName;
+    }
+
+    public City getCity() {
+        return city;
+    }
 
     @Override
     public String toString() {
@@ -50,6 +69,8 @@ public class Address {
         private String unitNumber;
         private String complexName;
         private String streetNumber;
+        private String streetName;
+        private City city;
         private int postalCode;
 
         public Builder UnitNumber(String unitNumber) {
@@ -67,6 +88,11 @@ public class Address {
             return this;
         }
 
+        public Builder StreetName(String streetName) {
+            this.streetName = streetName;
+            return this;
+        }
+
         public Builder PostalCode(int postalCode) {
             this.postalCode = postalCode;
             return this;
@@ -76,7 +102,9 @@ public class Address {
             this.unitNumber = address.unitNumber;
             this.complexName = address.complexName;
             this.streetNumber = address.streetNumber;
+            this.streetName = address.streetName;
             this.postalCode = address.postalCode;
+            this.city= address.getCity();
             return this;
         }
 
@@ -84,14 +112,14 @@ public class Address {
             return new Address(this);
         }
 
-        @Override
-        public boolean equals(Object o){
-            if (this==o) return true;
-            if (o==null || getClass() != o.getClass()) return false;
-            Address address = (Address) o;
-            return true;
-            //return primarykey.equals(Address.primarykey);
-        }
+//        @Override
+//        public boolean equals(Object o){
+//            if (this==o) return true;
+//            if (o==null || getClass() != o.getClass()) return false;
+//            Address address = (Address) o;
+//            return true;
+//            //return primarykey.equals(Address.primarykey);
+//        }
 
         //@Override
         //public int hashCode(return Objects.hash(primarykey))

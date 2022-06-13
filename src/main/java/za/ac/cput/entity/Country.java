@@ -3,21 +3,15 @@ package za.ac.cput.entity;
 //Ethan George
 //Student Number :218008430
 
-import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
-@Getter
-@Setter
 
 public class Country {
 
@@ -68,12 +62,12 @@ public class Country {
                 '}';
     }
 
-//    @Override
+
 //    public boolean equals(Objects o){
 //        if(this == o) return true;
 //        if (o == null || getClass() !=o.getClass()) return false;
 //        Country country = (Country) o;
-//        return countryId.equals(country.countryId)
+//        return countryId.equals(country.countryId);
 //    }
 
 
@@ -109,5 +103,8 @@ public class Country {
         }
 
 
+        public Country setCountryId() {
+            return null;
+        }
     }
 }

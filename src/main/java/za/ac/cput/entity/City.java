@@ -7,6 +7,8 @@ package za.ac.cput.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class City {
@@ -15,7 +17,10 @@ public class City {
     @Id
     private String id;
     private String name;
-    private Country country;
+
+    @OneToMany
+    @JoinColumn(name = "CountryName",nullable = false)
+    private Country country; //false error
 
     // Default constructor
     public City() {
@@ -42,6 +47,8 @@ public class City {
         return country;
     }
 
+
+    //fix this code, look at Breytons Employee code as example
     @Override
     public boolean equals(Object obj) {
         if (this == obj)

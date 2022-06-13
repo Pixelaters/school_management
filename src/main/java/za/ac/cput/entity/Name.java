@@ -12,14 +12,17 @@ import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
-@Embeddable
+//@Embeddable
 public class Name  {
 
-    @NotNull private String firstName;
+    @NotNull
+    private String firstName;
     private String middleName;
-    @NotNull String lastName;
+    @NotNull
+    private String lastName;
 
-
+    protected Name() {
+    }
 
     private Name (Builder builder){
         this.firstName= builder.firstName;
@@ -39,6 +42,7 @@ public class Name  {
     public String getLastName() {
         return lastName;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

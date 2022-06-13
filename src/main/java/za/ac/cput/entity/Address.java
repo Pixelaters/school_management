@@ -1,5 +1,11 @@
 package za.ac.cput.entity;
 
+/*Ziyaad Petersen
+  ADP3 - June Assessment 2022
+  Date: 9 June 2022
+  School Management
+ */
+
 import javax.persistence.Entity;
 import java.util.Objects;
 
@@ -9,7 +15,7 @@ public class Address {
     private final String complexName;
     private final String streetNumber;
     private final int postalCode;
-    //private final City city;
+    private City city;
 
 
     public Address(Builder builder) {
@@ -17,6 +23,7 @@ public class Address {
         this.complexName = builder.complexName;
         this.streetNumber = builder.streetNumber;
         this.postalCode = builder.postalCode;
+        this.city = builder.build().city;
     }
 
     public String getUnitNumber() {

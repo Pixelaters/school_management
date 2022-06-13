@@ -12,6 +12,7 @@ import za.ac.cput.entity.Country;
 
 public class CityFactory {
 
+    //use StringHelper
     public static City buildCity(String id, String name, Country country) {
         // valid object properties
         if (id == null || id.isEmpty()) {

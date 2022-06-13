@@ -14,6 +14,7 @@ public class NameFactory {
 
     public static Name buildName (String firstName,String middleName,String lastName){
         StringHelper.checkStringParam("firstName" ,firstName);
+        StringHelper.setEmptyIfNull(middleName);
         StringHelper.checkStringParam("lastName" ,lastName);
 
         return new Name.Builder().setFirstName(firstName).setMiddleName(middleName)

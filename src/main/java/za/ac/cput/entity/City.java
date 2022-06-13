@@ -48,32 +48,14 @@ public class City {
     }
 
 
-    //fix this code, look at Breytons Employee code as example
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
+    public boolean equals(Object o) {
+        if (this == o)
             return true;
-        if (obj == null)
+        if (o == null || getClass() != o.getClass())
             return false;
-        if (getClass() != obj.getClass())
-            return false;
-        City city = (City) obj;
-        if (country == null) {
-            if (city.country != null)
-                return false;
-        } else if (!country.equals(city.country))
-            return false;
-        if (id == null) {
-            if (city.id != null)
-                return false;
-        } else if (!id.equals(city.id))
-            return false;
-        if (name == null) {
-            if (city.name != null)
-                return false;
-        } else if (!name.equals(city.name))
-            return false;
-        return true;
+        City city = (City) o;
+        return id.equals(city.id);
     }
 
     @Override

@@ -19,9 +19,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class EmployeeAddressFactoryTest {
     //private static final Address address = new Address("");
     ArrayList<EmployeeAddress> employeeAddresses = new ArrayList<EmployeeAddress>();
-    private static final EmployeeAddress ea1 = EmployeeAddressFactory.builder("101A");
-    private static final EmployeeAddress ea2 = EmployeeAddressFactory.builder("123B");
-    private static final EmployeeAddress ea3 = EmployeeAddressFactory.builder("131C");
+    private static final EmployeeAddress ea1 = EmployeeAddressFactory.builder("101A",null);
+    private static final EmployeeAddress ea2 = EmployeeAddressFactory.builder("123B",null);
+    private static final EmployeeAddress ea3 = EmployeeAddressFactory.builder("131C",null);
     private static final EmployeeAddress ea4 = ea3;
 
     @Test
@@ -34,6 +34,11 @@ class EmployeeAddressFactoryTest {
         System.out.println("Added: " + employeeAddresses.get(2));
         employeeAddresses.add(ea4);
         System.out.println("Added: " + employeeAddresses.get(3));
+
+        assertNull(ea1.getAddress());
+        assertNull(ea2.getAddress());
+        assertNull(ea3.getAddress());
+        assertNull(ea4.getAddress());
 
         //checks if all staffId's are not null/empty
         for (EmployeeAddress employeeAddress : employeeAddresses) {

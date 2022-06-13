@@ -29,16 +29,7 @@ public class Country {
 
 
 
-    public Country(String countryId, String countryName) {
-        this.countryId = countryId;
-        this.countryName = countryName;
-
-
-    }
-
-
-
-    public Country() {
+    protected Country(String countryId, String countryName) {
 
     }
 
@@ -67,6 +58,8 @@ public class Country {
                 ", countryName='" + countryName + '\'' +
                 '}';
     }
+
+    //fix your equal thing look at Breytons example in Employee
 
 //    @Override
 //    public boolean equals(Objects o){
@@ -100,7 +93,7 @@ public class Country {
 
         public Builder copy(Country c){
             this.countryId = c.countryId;
-            this.countryName = countryName;
+            this.countryName = c.countryName;
             return this;
         }
 

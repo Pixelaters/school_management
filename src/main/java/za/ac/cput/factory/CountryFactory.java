@@ -8,6 +8,9 @@ Student Number :218008430
 
 import za.ac.cput.entity.Country;
 
+
+//why you using email validation to check if country name?
+//pls use stringhelper
 public class CountryFactory {
 
    private static final String validation = "^(.+)@(.+)$";

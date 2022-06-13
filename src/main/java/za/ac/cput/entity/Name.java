@@ -1,6 +1,7 @@
 /*
-Nondumiso Gaga 220430853
-Name value object
+Student Name: Nondumiso Gaga
+Student Number: 220430853
+Name class
 
 
  */

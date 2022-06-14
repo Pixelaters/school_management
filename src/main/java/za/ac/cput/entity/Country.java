@@ -32,6 +32,10 @@ public class Country {
         this.countryName = b.countryName;
     }
 
+    public Country() {
+
+    }
+
     public String getCountryId() {
         return countryId;
     }

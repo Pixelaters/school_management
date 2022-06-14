@@ -1,22 +1,22 @@
 package za.ac.cput.entity;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.io.Serializable;
-import java.util.Objects;
-
 /*Breyton Ernstzen (217203027)
   ADP3 - June Assessment 2022
   Date: 9 June 2022
   School Management
  */
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.*;
+
 @Entity
+//@Table(name = "employee")
 public class Employee {
     @Id
     private String staffId;
     @NotNull
     private String email;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "name")
     @JoinColumn(name = "emp_name",nullable = false)
     private Name name;//Note this error *
 

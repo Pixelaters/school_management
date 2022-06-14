@@ -13,13 +13,19 @@ import za.ac.cput.helper.StringHelper;
 //why you using email validation to check if country name?
 //pls use stringhelper
 public class CountryFactory {
-    public static Country builder(String id, String country) {
+    public static Country createCountry(String countryName, String countryId) {
 
-        //error
+        if (StringHelper.isEmptyOrNull(countryId) || StringHelper.isEmptyOrNull(countryId)) {
+            throw new IllegalArgumentException(" ");
+
+        }
+
+
         return new Country.Builder()
-                .countryId(id)
-                .countryName(country)
+                .setCountryId(countryId)
+                .setCountryName(countryName)
                 .build();
+
     }
 //    public static Country builder(String s, String south_africa) {
 //

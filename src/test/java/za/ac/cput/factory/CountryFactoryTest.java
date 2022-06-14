@@ -19,10 +19,11 @@ public class CountryFactoryTest {
 
     ArrayList<Country> countries = new ArrayList<>();
 
-    private static final Country country1 = CountryFactory.builder("1" , "South Africa");
+    private static final Country country1 = CountryFactory.createCountry("South Africa" , "3");
 
-    private static final Country country2 = CountryFactory.builder("2" , "Wales");
-    private static final Country country3 = CountryFactory.builder("3" , "Italy");
+    private static final Country country2 = CountryFactory.createCountry("Wales" , "2");
+    private static final Country country3 = CountryFactory.createCountry("England" , "1");
+
 
     private static final Country country4 = country3;
 

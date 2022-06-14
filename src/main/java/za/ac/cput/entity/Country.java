@@ -15,7 +15,6 @@ import java.util.Objects;
 
 public class Country {
 
-
     @Id
     private String countryId;
 
@@ -41,19 +40,14 @@ public class Country {
         return countryId;
     }
 
-    public void setCountryId(String countryId) {
-        this.countryId = countryId;
-    }
-
 
 
     public String getCountryName() {
         return countryName;
     }
 
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
-    }
+
+
 
     @Override
     public String toString() {
@@ -79,19 +73,20 @@ public class Country {
 
     public static class Builder{
         private String countryId;
+
         private String countryName;
 
-        public Builder setCountryId(String countryId){
+        public Builder countryId(String countryId){
             this.countryId = countryId;
             return this;
         }
 
-        public Builder setCountryName(String countryName){
+        public Builder countryName(String countryName){
             this.countryName = countryName;
             return this;
         }
 
-        public Country.Builder copy(Country c){
+        public Builder copy(Country c){
             this.countryId = c.countryId;
             this.countryName = c.countryName;
             return this;
@@ -102,6 +97,8 @@ public class Country {
         }
 
 
-
+        public Country setCountryId() {
+            return null;
+        }
     }
 }

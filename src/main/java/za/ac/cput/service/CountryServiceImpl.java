@@ -1,12 +1,13 @@
 package za.ac.cput.service;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.Country;
 import za.ac.cput.repository.CountryRepository;
 import za.ac.cput.service.impl.CountryService;
 
 import java.util.Collections;
 import java.util.List;
-
+@Service
 public class CountryServiceImpl implements CountryService {
 
     private final CountryRepository countryRepository;

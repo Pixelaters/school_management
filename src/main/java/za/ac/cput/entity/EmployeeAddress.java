@@ -17,7 +17,7 @@ public class EmployeeAddress {
 
     @Id private String staffId;
     @OneToOne
-    //@JoinColumn(name = "emp_address",nullable = false)
+    @JoinColumn(name = "emp_address",nullable = false)
     private Address address; //Note this error *
 
     protected EmployeeAddress(){

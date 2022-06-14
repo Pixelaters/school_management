@@ -9,6 +9,7 @@ import java.util.Objects;
 
 import za.ac.cput.entity.City;
 import za.ac.cput.entity.Country;
+import za.ac.cput.helper.StringHelper;
 
 public class CityFactory {
 

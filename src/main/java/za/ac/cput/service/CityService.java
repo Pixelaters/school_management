@@ -8,7 +8,12 @@ package za.ac.cput.service;
 import java.util.List;
 
 import za.ac.cput.entity.City;
+import za.ac.cput.entity.Country;
 
 public interface CityService extends IService<City, String>  {
     List<City> getAll();
+    City getCityByName(String name);
+    City getCityByCountry(Country country);
+    void deleteAll();
+
 }

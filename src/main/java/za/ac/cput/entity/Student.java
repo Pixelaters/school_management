@@ -29,7 +29,7 @@ public class Student {
         private Student(Builder b) {
             this.studentId = b.studentId;
             this.email = b.email;
-            this.name = b.name;
+            //this.name = b.name;
         }
 
         public String getStudentId() {
@@ -42,7 +42,6 @@ public class Student {
 
         public Name getName() {
             return name;
-
         }
 
     @Override
@@ -75,28 +74,22 @@ public class Student {
         private String email;
         private Name name;
 
-        public Builder studentId(String studentId) {
+        public Builder setStudentId(String studentId) {
             this.studentId = studentId;
             return this;
         }
 
-        public Builder email(String email) {
+        public Builder setEmail(String email) {
             this.email = email;
             return this;
         }
-
-        public Builder name(Name name){
-           this.name = name;
-            return this;
-        }
-
 
 
 
         public Builder copy(Student s){
             this.studentId = s.studentId;
             this.email = s.email;
-            this.name = s.name;
+            this.name = s.getName();
             return this;
 
         }

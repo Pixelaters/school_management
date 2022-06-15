@@ -20,7 +20,7 @@ public class CityServiceTest {
     @BeforeAll
     public static void setUp() throws Exception {
 
-        country = new Country.Builder().countryId("sa").countryName("South Africa").build();
+        country = new Country.Builder().setCountryId("sa").setCountryName("South Africa").build();
 
         testCity = CityFactory.buildCity("1", "Durban", country);
 

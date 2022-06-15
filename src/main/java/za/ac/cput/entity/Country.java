@@ -3,9 +3,7 @@ package za.ac.cput.entity;
 //Ethan George
 //Student Number :218008430
 
-import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -14,6 +12,8 @@ public class Country {
 
 
     @Id
+    //@SequenceGenerator(name = "city_sequence",sequenceName = "city_sequence",allocationSize = 1)
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "city_sequence")
     private String id;
 
     @NotNull

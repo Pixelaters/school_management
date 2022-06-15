@@ -17,7 +17,7 @@ public class Employee {
     @NotNull
     private String email;
     //@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "name")
-    //@JoinColumn(name = "emp_name",nullable = false)
+    //@JoinColumn(insertable = false,updatable = false)
     @Embedded
     private Name name;//Note this error *
 

@@ -25,8 +25,8 @@ public class CityFactoryTest {
     public static void setUp() throws Exception {
 
         country = new Country.Builder()
-                //.countryId("sa")
-                //.countryName("South Africa")
+                .setCountryId("sa")
+                .setCountryName("South Africa")
                 .build();
     }
 

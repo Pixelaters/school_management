@@ -13,7 +13,7 @@ import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
-//@Embeddable
+@Embeddable
 public class Name  {
 
     @NotNull
@@ -31,6 +31,18 @@ public class Name  {
         this.lastName=builder.lastName;
     }
 
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     public String getFirstName() {
         return firstName;

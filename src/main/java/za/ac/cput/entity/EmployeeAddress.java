@@ -1,9 +1,6 @@
 package za.ac.cput.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.Objects;
 
 /*Breyton Ernstzen (217203027)
@@ -16,8 +13,9 @@ import java.util.Objects;
 public class EmployeeAddress {
 
     @Id private String staffId;
-    @OneToOne
-    @JoinColumn(name = "emp_address",nullable = false)
+    //@OneToOne
+    //@JoinColumn(name = "emp_address",nullable = false)
+    @Embedded
     private Address address; //Note this error *
 
     protected EmployeeAddress(){

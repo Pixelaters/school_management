@@ -5,12 +5,10 @@ Date: 11 June 2022
 */
 package za.ac.cput.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
+@Embeddable
 public class City {
     // Entity variables
 
@@ -18,8 +16,7 @@ public class City {
     private String id;
     private String name;
 
-    @OneToMany
-    @JoinColumn(name = "CountryName",nullable = false)
+    @Embedded
     private Country country; //false error
 
     // Default constructor

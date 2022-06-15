@@ -9,9 +9,9 @@ import za.ac.cput.entity.StudentAddress;
 import za.ac.cput.helper.StringHelper;
 import za.ac.cput.entity.Address;
 public class StudentAddressFactory {
-    public static StudentAddress build(String studentId, Address address){
+    public static StudentAddress build(String studentId){
         StringHelper.checkStringParam("3896578924",studentId);
-        return new StudentAddress.Builder().studentId(studentId).address(address).build();
+        return new StudentAddress.Builder().setStudentId(studentId).build();
 
     }
 }

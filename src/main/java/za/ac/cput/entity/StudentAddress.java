@@ -63,12 +63,12 @@ public class StudentAddress {
         private String studentId;
         private Address address;
 
-        public Builder studentId(String studentId) {
+        public Builder setStudentId(String studentId) {
             this.studentId = studentId;
             return this;
         }
 
-        public Builder address(Address address) {
+        public Builder setAddress(Address address) {
             this.address = address;
             return this;
         }

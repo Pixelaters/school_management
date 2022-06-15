@@ -7,16 +7,24 @@ package za.ac.cput.entity;
  */
 
 import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
+
+import lombok.Getter;
+import lombok.Setter;
 import za.ac.cput.entity.City;
 
+@Embeddable
 public class Address {
     private String unitNumber;
     private String complexName;
     private String streetNumber;
     private String streetName;
     private int postalCode;
+
+    @Embedded
     private City city;
 
     protected Address() {
@@ -51,9 +59,11 @@ public class Address {
         return streetName;
     }
 
+
     public City getCity() {
         return city;
     }
+
 
     @Override
     public String toString() {
@@ -64,6 +74,11 @@ public class Address {
                 ", postalCode=" + postalCode +
                 '}';
     }
+
+//    @Override
+//    public int hashCode{
+//        return Objects.hash()
+//    }
 
     public static class Builder {
         private String unitNumber;
@@ -98,13 +113,18 @@ public class Address {
             return this;
         }
 
+        public Builder City(City city){
+            this.city = city;
+            return this;
+        }
+
         public Builder copy(Address address){
             this.unitNumber = address.unitNumber;
             this.complexName = address.complexName;
             this.streetNumber = address.streetNumber;
             this.streetName = address.streetName;
             this.postalCode = address.postalCode;
-            this.city= address.getCity();
+            this.city= address.city;
             return this;
         }
 

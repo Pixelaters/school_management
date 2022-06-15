@@ -16,9 +16,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class StudentFactoryTest {
 
     ArrayList<Student> student = new ArrayList<>();
-    private static final Student student1 = StudentFactory.build("25015435","Mat385@gmail.com");
-    private static final Student student2 = StudentFactory.build("28965234","Jake125@gmail.com");
-    private static final Student student3 = StudentFactory.build("23152687","Mike578@gmail.com");
+    private static final Student student1 = StudentFactory.build("25015435","Mat385@gmail.com",null);
+    private static final Student student2 = StudentFactory.build("28965234","Jake125@gmail.com",null);
+    private static final Student student3 = StudentFactory.build("23152687","Mike578@gmail.com",null);
     private static final Student student4 = student3;
 
     @Test

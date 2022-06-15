@@ -41,8 +41,8 @@ public class CountryFactoryTest {
     @Test
     void b_objectEquality(){
 
-        assertNotEquals(country1.getCountryId() , country2.getCountryId());
-        assertNotEquals(country1.getCountryName() , country2.getCountryName());
+        assertNotEquals(country1.getId() , country2.getId());
+        assertNotEquals(country1.getName() , country2.getName());
         assertNotEquals(country1 , country2);
         assertEquals(country3 , country4);
 
@@ -59,8 +59,8 @@ public class CountryFactoryTest {
     void c_objectIdentity(){
 
 
-        assertNotSame(country1.getCountryId() , country2.getCountryId());
-        assertNotSame(country1.getCountryName() , country2.getCountryName());
+        assertNotSame(country1.getId() , country2.getId());
+        assertNotSame(country1.getName() , country2.getName());
         assertSame(country3 , country4);
 
         assertNotNull(country1);

@@ -4,13 +4,8 @@ import za.ac.cput.entity.Country;
 
 import java.util.List;
 
-public interface CountryService {
+public interface CountryService extends IService<Country, String> {
 
-    List<Country> getAll();
+    public List<Country> getAll();
 
-    Country create(Country country);
-
-    Country read(String countryId);
-
-    void delete(String countryId);
 }

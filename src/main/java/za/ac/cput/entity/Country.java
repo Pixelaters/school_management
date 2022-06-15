@@ -3,14 +3,10 @@ package za.ac.cput.entity;
 //Ethan George
 //Student Number :218008430
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
-import java.util.Objects;
 
 @Entity
 @Embeddable
@@ -18,49 +14,49 @@ public class Country {
 
 
     @Id
-    private String countryId;
+    private String id;
 
     @NotNull
-    private String countryName;
+    private String name;
 
 
 
-    protected Country(String countryId, String countryName) {
+    protected Country(String id, String name) {
 
     }
 
     private Country(Builder b){
-        this.countryId = b.countryId;
-        this.countryName = b.countryName;
+        this.id = b.id;
+        this.name = b.name;
     }
 
     public Country() {
 
     }
 
-    public String getCountryId() {
-        return countryId;
+    public String getId() {
+        return id;
     }
 
-    public void setCountryId(String countryId) {
-        this.countryId = countryId;
+    public void setId(String countryId) {
+        this.id = countryId;
     }
 
 
 
-    public String getCountryName() {
-        return countryName;
+    public String getName() {
+        return name;
     }
 
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
+    public void setName(String countryName) {
+        this.name = countryName;
     }
 
     @Override
     public String toString() {
         return "Country{" +
-                " Country id='" + countryId + '\'' +
-                ", countryName='" + countryName + '\'' +
+                " Country id='" + id + '\'' +
+                ", countryName='" + name + '\'' +
                 '}';
     }
 
@@ -79,22 +75,22 @@ public class Country {
 
 
     public static class Builder{
-        private String countryId;
-        private String countryName;
+        private String id;
+        private String name;
 
-        public Builder setCountryId(String countryId){
-            this.countryId = countryId;
+        public Builder setId(String id){
+            this.id = id;
             return this;
         }
 
-        public Builder setCountryName(String countryName){
-            this.countryName = countryName;
+        public Builder setName(String name){
+            this.name = name;
             return this;
         }
 
         public Country.Builder copy(Country c){
-            this.countryId = c.countryId;
-            this.countryName = c.countryName;
+            this.id = c.id;
+            this.name = c.name;
             return this;
         }
 

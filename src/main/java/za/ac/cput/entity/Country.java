@@ -5,33 +5,22 @@ package za.ac.cput.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 @Entity
-@Embeddable
-public class Country {
-
+public class Country implements Serializable {
 
     @Id
-    //@SequenceGenerator(name = "city_sequence",sequenceName = "city_sequence",allocationSize = 1)
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "city_sequence")
     private String id;
-
     @NotNull
     private String name;
 
-
-
-    protected Country(String id, String name) {
-
+    protected Country() {
     }
 
     private Country(Builder b){
         this.id = b.id;
         this.name = b.name;
-    }
-
-    public Country() {
-
     }
 
     public String getId() {

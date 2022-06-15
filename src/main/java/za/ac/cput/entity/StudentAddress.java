@@ -1,9 +1,6 @@
 package za.ac.cput.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.Objects;
 
 /*Raeece Samuels (217283764)
@@ -15,8 +12,9 @@ import java.util.Objects;
 public class StudentAddress {
     @Id
     private  String studentId;
-    @OneToOne
-    @JoinColumn(name = "studAdd_name",nullable = false)
+    //@OneToOne
+    //@JoinColumn(name = "studAdd_name",nullable = false)
+    @Embedded
     private  Address address;//Note this error *
 
     protected StudentAddress(){
@@ -63,12 +61,12 @@ public class StudentAddress {
         private String studentId;
         private Address address;
 
-        public Builder setStudentId(String studentId) {
+        public Builder studentId(String studentId) {
             this.studentId = studentId;
             return this;
         }
 
-        public Builder setAddress(Address address) {
+        public Builder address(Address address) {
             this.address = address;
             return this;
         }

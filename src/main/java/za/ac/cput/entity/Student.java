@@ -1,9 +1,6 @@
 package za.ac.cput.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
@@ -12,14 +9,16 @@ import java.util.Objects;
   Date: 9 June 2022
   School Management
  */
+
 @Entity
 public class Student {
         @Id
         private String studentId;
         @NotNull
         private  String email;
-        @OneToOne
-        @JoinColumn(name = "stud_name",nullable = false)
+        //@OneToOne
+        //@JoinColumn(name = "stud_name",nullable = false)
+        @Embedded
         private  Name name;//Note this error*
 
         protected Student(){
@@ -29,7 +28,7 @@ public class Student {
         private Student(Builder b) {
             this.studentId = b.studentId;
             this.email = b.email;
-            //this.name = b.name;
+            this.name = b.name;
         }
 
         public String getStudentId() {
@@ -74,22 +73,26 @@ public class Student {
         private String email;
         private Name name;
 
-        public Builder setStudentId(String studentId) {
+        public Builder studentId(String studentId) {
             this.studentId = studentId;
             return this;
         }
 
-        public Builder setEmail(String email) {
+        public Builder email(String email) {
             this.email = email;
             return this;
         }
 
+        public Builder name(Name name) {
+            this.name = name;
+            return this;
+        }
 
 
-        public Builder copy(Student s){
-            this.studentId = s.studentId;
-            this.email = s.email;
-            this.name = s.getName();
+        public Builder copy(Student student){
+            this.studentId = student.studentId;
+            this.email = student.email;
+            this.name = student.name;
             return this;
 
         }

@@ -1,20 +1,18 @@
 package za.ac.cput.entity;
-
-import javax.persistence.*;
-import java.util.Objects;
-
 /*Breyton Ernstzen (217203027)
   ADP3 - June Assessment 2022
   Date: 9 June 2022
   School Management
  */
+import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public class EmployeeAddress {
 
     @Id private String staffId;
-    //@OneToOne
-    //@JoinColumn(name = "emp_address",nullable = false)
+
+    @JoinColumn(insertable = false,updatable = false)
     @Embedded
     private Address address; //Note this error *
 
@@ -51,12 +49,12 @@ public class EmployeeAddress {
         if (o == null || getClass() != o.getClass())
             return false;
         EmployeeAddress that = (EmployeeAddress) o;
-        return staffId.equals(that.staffId) && address.equals(that.address); //take out if it causes an error
+        return staffId.equals(that.staffId); //take out if it causes an error
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(staffId,address);//take out if it causes an error
+        return Objects.hash(staffId);//take out if it causes an error
     }
 
     public static class Builder{

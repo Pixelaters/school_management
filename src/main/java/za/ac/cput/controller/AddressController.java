@@ -30,7 +30,7 @@ public class AddressController {
 
     @PostMapping("save_address")
     public ResponseEntity<Address>create(@Valid @RequestBody Address saveAddress){
-        log.info("Save request: {}, saveAddress");
+        log.info("Save request: {}", saveAddress);
 
         try{
             Address newAddress= addressIService.create(saveAddress);

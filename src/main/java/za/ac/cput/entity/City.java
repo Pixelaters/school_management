@@ -6,18 +6,22 @@ Date: 11 June 2022
 package za.ac.cput.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Collections;
+import java.util.Set;
 
 @Entity
-@Embeddable
-public class City {
+//@Embeddable
+public class City implements Serializable {
     // Entity variables
 
     @Id
     private String id;
     private String name;
 
-    @Embedded
-    private Country country; //false error
+    //@Embedded
+    @OneToMany(targetEntity = Country.class, mappedBy = "id",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private Set<Country> country; //false error
 
     // Default constructor
     public City() {
@@ -27,7 +31,7 @@ public class City {
     public City(Builder builder) {
         this.id = builder.id;
         this.name = builder.name;
-        this.country = builder.country;
+        this.country = Collections.singleton(builder.country);
 
     }
 
@@ -41,7 +45,7 @@ public class City {
     }
 
     public Country getCountry() {
-        return country;
+        return (Country) country;
     }
 
 
@@ -88,7 +92,7 @@ public class City {
         public Builder copy(City city) {
             this.id = city.id;
             this.name = city.name;
-            this.country = city.country;
+            this.country = (Country) city.country;
 
             return this;
         }

@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("school_management/country")
+@RequestMapping("school_management/country/")
 @Log4j2
 public class CountryController {
 

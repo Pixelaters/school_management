@@ -9,5 +9,6 @@ import za.ac.cput.entity.StudentAddress;
   Date: 14 June 2022
   School Management
 */
+@Repository
 public interface StudentAddressIRepository extends JpaRepository<StudentAddress , String> {
 }

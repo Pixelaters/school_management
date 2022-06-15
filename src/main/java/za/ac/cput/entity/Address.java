@@ -6,10 +6,7 @@ package za.ac.cput.entity;
   School Management
  */
 
-import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 import lombok.Getter;
@@ -24,7 +21,8 @@ public class Address {
     private String streetName;
     private int postalCode;
 
-    @Embedded
+    //@Embedded
+    @ManyToOne(targetEntity = City.class,cascade = CascadeType.ALL)
     private City city;
 
     protected Address() {

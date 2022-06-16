@@ -10,4 +10,5 @@ import java.util.List;
 * */
 public interface StudentIService extends IService<Student, String> {
     public List<Student> getAll();
+
 }

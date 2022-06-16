@@ -10,4 +10,5 @@ import za.ac.cput.entity.Student;
 */
 @Repository
 public interface StudentIRepository extends JpaRepository<Student, String> {
+ Student findStudentByLastName(String lastName);
 }

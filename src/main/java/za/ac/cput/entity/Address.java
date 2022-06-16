@@ -22,7 +22,7 @@ public class Address {
     private int postalCode;
 
     //@Embedded
-    @ManyToOne(targetEntity = City.class,cascade = CascadeType.ALL)
+    @ManyToOne(targetEntity = City.class,cascade = CascadeType.ALL) //one city can have many addresses, many refers to the class its currently on, one refers to the class thats being joined
     private City city;
 
     protected Address() {

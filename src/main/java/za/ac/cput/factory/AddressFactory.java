@@ -11,7 +11,7 @@ import za.ac.cput.entity.City;
 import za.ac.cput.helper.StringHelper;
 
 public class AddressFactory {
-    public static Address build(String unitNumber, String complexName, String streetNumber, int postalCode, String streetName, City city ){
+    public static Address build(String unitNumber, String complexName, String streetNumber,String streetName, int postalCode , City city ){
         StringHelper.setEmptyIfNull(unitNumber);
         StringHelper.setEmptyIfNull(complexName);
         StringHelper.checkStringParam("streetNumber",streetNumber);
@@ -19,7 +19,6 @@ public class AddressFactory {
         if (postalCode<999 || postalCode> 9999){
             throw new IllegalArgumentException("Postal code needs to be 4 digits");
         }
-        //StringHelper.checkStringParam("postalCode",postalCode); //make a helper class that accepts 4 digits
-        return new Address.Builder().UnitNumber(unitNumber).ComplexName(complexName).StreetNumber(streetNumber).PostalCode(postalCode).build(); //City(city)??
+        return new Address.Builder().UnitNumber(unitNumber).ComplexName(complexName).StreetNumber(streetNumber).StreetName(streetName).PostalCode(postalCode).City(city).build(); //City(city)??
     }
 }

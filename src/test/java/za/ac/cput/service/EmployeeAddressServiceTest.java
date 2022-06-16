@@ -38,7 +38,7 @@ class EmployeeAddressServiceTest {
                 .address(AddressFactory.build("E1","Mountain Hill","Grove Street",
                         6810,"Grove Street",
                         CityFactory.buildCity("SRS1","Pretoria",
-                                CountryFactory.createCountry("South Africa","RSA-P"))))
+                                CountryFactory.builder("South Africa","RSA-P"))))
                 .build();
 
         employeeAddress2 = new EmployeeAddress.Builder()
@@ -46,7 +46,7 @@ class EmployeeAddressServiceTest {
                 .address(AddressFactory.build("P369","Potts","141",
                         7309,"District Nine",
                         CityFactory.buildCity("D1","Durban",
-                                CountryFactory.createCountry("South Africa","RSA-D"))))
+                                CountryFactory.builder("South Africa","RSA-D"))))
                 .build();
     }
 

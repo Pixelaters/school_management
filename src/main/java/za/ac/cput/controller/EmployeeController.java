@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import za.ac.cput.api.EmployeeAPI;
 import za.ac.cput.entity.Employee;
 import za.ac.cput.service.impl.EmployeeIService;
 
@@ -22,10 +23,12 @@ import java.util.List;
 public class EmployeeController {
 
     private final EmployeeIService employeeIService;
+    //private final EmployeeAPI employeeAPI;
 
     @Autowired
     EmployeeController(EmployeeIService employeeIService) {
         this.employeeIService = employeeIService;
+        //this.employeeAPI = employeeAPI;
     }
 
     @PostMapping("save_employee")

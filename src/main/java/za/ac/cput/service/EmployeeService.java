@@ -6,6 +6,7 @@ package za.ac.cput.service;
  */
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import za.ac.cput.api.EmployeeAPI;
 import za.ac.cput.entity.Employee;
 import za.ac.cput.repository.EmployeeIRepository;
 import za.ac.cput.service.impl.EmployeeIService;
@@ -19,6 +20,7 @@ public class EmployeeService implements EmployeeIService {
 
     private final EmployeeIRepository employeeIRepository;
     //private static final String validation = "^(.+)@(.+)$";
+    private EmployeeAPI employeeAPI;
 
     @Autowired
     public EmployeeService(EmployeeIRepository employeeIRepository) {
@@ -27,8 +29,8 @@ public class EmployeeService implements EmployeeIService {
 
     @Override
     public Employee create(Employee employee) {
-            return this.employeeIRepository.save(employee);
-
+        return this.employeeAPI.create(employee);
+            //return this.employeeIRepository.save(employee);
     }
 
     @Override

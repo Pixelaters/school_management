@@ -16,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import za.ac.cput.entity.Employee;
 import za.ac.cput.factory.EmployeeFactory;
+import za.ac.cput.factory.NameFactory;
 
 import java.util.Arrays;
 
@@ -32,7 +33,8 @@ class EmployeeControllerTest {
     @BeforeEach
     void setUp() {
         assertNotNull(employeeController);
-        this.employee = EmployeeFactory.builder("121","breyton@gmail.com",null);
+        this.employee = EmployeeFactory.builder("121","breyton@gmail.com",
+                NameFactory.buildName("a","b","c"));
         this.urlBase = "http://localhost:" + this.portNo + "/school_management/employee/";
 
     }

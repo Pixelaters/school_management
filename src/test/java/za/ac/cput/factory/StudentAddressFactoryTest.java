@@ -18,15 +18,15 @@ class StudentAddressFactoryTest {
 
     ArrayList<StudentAddress> studentAddress = new ArrayList<>();
     private static final StudentAddress studentAddress1 = StudentAddressFactory.build("25015435",
-            AddressFactory.build("","mavericks","258",7128,"Maven",
+            AddressFactory.build("","mavericks","258","Kit Kat",1111,
                     CityFactory.buildCity("120","Cape Town/CT",
                             CountryFactory.builder("CT/RSA","RSA/CT"))));
     private static final StudentAddress studentAddress2 = StudentAddressFactory.build("28965234",
-            AddressFactory.build("7","Austin","79",2100,"Nevada",
+            AddressFactory.build("7","Austin","79","Mavericks",1111,
                     CityFactory.buildCity("121","Johannesburg/JHB",
                             CountryFactory.builder("JHB/RSA","RSA/JHB"))));
     private static final StudentAddress studentAddress3 = StudentAddressFactory.build("23152687",
-            AddressFactory.build("2597","American Bash","85",3000,"AmaZulu",
+            AddressFactory.build("2597","American Bash","85","Chomps",1111,
                     CityFactory.buildCity("123","KwaZulu-Natal/KZN",
                             CountryFactory.builder("KZN/RSA","RSA/KZN"))));
     private static final StudentAddress studentAddress4 = studentAddress3;

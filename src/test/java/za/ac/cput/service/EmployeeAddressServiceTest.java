@@ -36,17 +36,17 @@ class EmployeeAddressServiceTest {
         employeeAddress1 = new EmployeeAddress.Builder()
                 .staffId("121")
                 .address(AddressFactory.build("E1","Mountain Hill","Grove Street",
-                        6810,"Grove Street",
+                        "6810",1234,
                         CityFactory.buildCity("SRS1","Pretoria",
-                                CountryFactory.createCountry("South Africa","RSA-P"))))
+                                CountryFactory.builder("South Africa","RSA-P"))))
                 .build();
 
         employeeAddress2 = new EmployeeAddress.Builder()
                 .staffId("101")
                 .address(AddressFactory.build("P369","Potts","141",
-                        7309,"District Nine",
+                        "Grover Street",2244,
                         CityFactory.buildCity("D1","Durban",
-                                CountryFactory.createCountry("South Africa","RSA-D"))))
+                                CountryFactory.builder("South Africa","RSA-D"))))
                 .build();
     }
 

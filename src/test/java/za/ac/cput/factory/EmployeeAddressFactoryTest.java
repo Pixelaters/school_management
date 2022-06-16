@@ -20,17 +20,17 @@ class EmployeeAddressFactoryTest {
     //private static final Address address = new Address("");
     ArrayList<EmployeeAddress> employeeAddresses = new ArrayList<EmployeeAddress>();
     private static final EmployeeAddress ea1 = EmployeeAddressFactory.builder("101A",
-            AddressFactory.build("K18","Forest Hill","6",7100,
-                    "Searle Street", CityFactory.buildCity("333","Cape Town",
-                            CountryFactory.createCountry("South Africa","RSA-CT"))));
+            AddressFactory.build("K18","Forest Hill","6","Mexican Wave",
+                    3334, CityFactory.buildCity("333","Cape Town",
+                            CountryFactory.builder("South Africa","RSA-CT"))));
     private static final EmployeeAddress ea2 = EmployeeAddressFactory.builder("123B",
-            AddressFactory.build("E145","Bayview", "52",7306,
-                    "Bird Avenue", CityFactory.buildCity("AA1","Kimberley",
-                            CountryFactory.createCountry("South Africa","RSA-K"))));
+            AddressFactory.build("E145","Bayview", "52","Ziyaad Ave",
+                    1212, CityFactory.buildCity("AA1","Kimberley",
+                            CountryFactory.builder("South Africa","RSA-K"))));
     private static final EmployeeAddress ea3 = EmployeeAddressFactory.builder("131C",
-            AddressFactory.build("B20A","De-Zalze","12",7309,
-                    "Jan van Riebeeck Ave", CityFactory.buildCity("BF101","Bloemfontein",
-                            CountryFactory.createCountry("South Africa","RSA-B"))));
+            AddressFactory.build("B20A","De-Zalze","12","Wales",
+                    1738, CityFactory.buildCity("BF101","Bloemfontein",
+                            CountryFactory.builder("South Africa","RSA-B"))));
     private static final EmployeeAddress ea4 = ea3;
 
     @Test

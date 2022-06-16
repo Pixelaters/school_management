@@ -13,9 +13,13 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.entity.Employee;
+import za.ac.cput.entity.Name;
 import za.ac.cput.factory.EmployeeFactory;
+import za.ac.cput.factory.NameFactory;
 import za.ac.cput.repository.EmployeeIRepository;
 import za.ac.cput.service.impl.EmployeeIService;
+
+import java.util.regex.Pattern;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -34,13 +38,14 @@ class EmployeeServiceTest {
         employee1 = new Employee.Builder()
                 .staffId("121")
                 .email("brey@gmail.com")
-                .name(null)
+                .name(NameFactory.buildName("Brey","Gift","Christen"))
                 .build();
+
 
         employee2 = new Employee.Builder()
                 .staffId("101")
-                .email("sean@gmail.com")
-                .name(null)
+                .email("jt@gmail.com")
+                .name(NameFactory.buildName("Jeremih","","Tyler"))
                 .build();
     }
 
@@ -50,12 +55,14 @@ class EmployeeServiceTest {
         employeeIRepository.save(employee2);
 
         assertAll(
+                () -> assertNotNull(employee1),
+                () -> assertNotNull(employee2),
                 () -> assertNotNull(employee1.getStaffId()),
                 () -> assertNotNull(employee2.getStaffId()),
                 () -> assertNotNull(employee1.getEmail()),
                 () -> assertNotNull(employee2.getEmail()),
-                () -> assertNull(employee1.getName()),
-                () -> assertNull(employee2.getName())
+                () -> assertNotNull(employee1.getName()),
+                () -> assertNotNull(employee2.getName())
         );
 
         System.out.println("Employees added...");
@@ -72,14 +79,28 @@ class EmployeeServiceTest {
                 () -> assertNotSame(employee1.getStaffId(),employee2.getStaffId()),
                 () -> assertNotEquals(employee1.getStaffId(),employee2.getStaffId())
         );
-
+        System.out.println();
+        System.out.println("Reading...");
         System.out.println(employee1.toString());
         System.out.println(employee2.toString());
+        System.out.println();
+    }
+
+    @Test
+    void c_readByNameAndEmail() {
+        employeeIRepository.getReferenceById(employee1.getStaffId());
+        employeeIRepository.getReferenceById(employee2.getStaffId());
+
+        assertAll(
+                () -> assertNotNull(employee1.getStaffId()),
+                () -> assertNotSame(employee1.getStaffId(), employee2.getStaffId()),
+                () -> assertNotEquals(employee1.getStaffId(), employee2.getStaffId())
+        );
 
     }
 
     @Test
-    void c_delete() {
+    void d_delete() {
         employeeIRepository.deleteById(employee1.getStaffId());
         employeeIRepository.deleteById(employee2.getStaffId());
 
@@ -89,12 +110,14 @@ class EmployeeServiceTest {
                 () -> assertNotSame(employee1.getStaffId(),employee2.getStaffId()),
                 () -> assertNotEquals(employee1.getStaffId(),employee2.getStaffId())
         );
-
+        System.out.println();
         System.out.println("Deletion success...");
     }
 
     @Test
-    void d_getAll() {
+    void e_getAll() {
+        System.out.println();
         System.out.println(employeeIRepository.findAll());
+
     }
 }

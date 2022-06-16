@@ -12,11 +12,13 @@ import za.ac.cput.service.impl.EmployeeIService;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Pattern;
 
 @Service
 public class EmployeeService implements EmployeeIService {
 
     private final EmployeeIRepository employeeIRepository;
+    //private static final String validation = "^(.+)@(.+)$";
 
     @Autowired
     public EmployeeService(EmployeeIRepository employeeIRepository) {
@@ -25,7 +27,8 @@ public class EmployeeService implements EmployeeIService {
 
     @Override
     public Employee create(Employee employee) {
-        return this.employeeIRepository.save(employee);
+            return this.employeeIRepository.save(employee);
+
     }
 
     @Override

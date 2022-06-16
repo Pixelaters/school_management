@@ -30,7 +30,7 @@ public class EmployeeAddressService implements EmployeeAddressIService {
 
     @Override
     public EmployeeAddress read(String employeeId) {
-        return this.employeeAddressIRepository.getById(employeeId);
+        return this.employeeAddressIRepository.getReferenceById(employeeId);
     }
 
     @Override

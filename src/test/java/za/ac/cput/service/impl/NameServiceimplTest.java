@@ -7,44 +7,73 @@ package za.ac.cput.service.impl;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mockito.Mock;
 import za.ac.cput.entity.Name;
-import za.ac.cput.factory.NameFactory;
 import za.ac.cput.repository.NameRepository;
-import za.ac.cput.service.NameIService;
+
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class NameServiceimplTest {
 
-    private final Name name = NameFactory.buildName("Lois","","Ping");
+    @Mock
+    private NameRepository nameRepository;
 
-    @Autowired
-    private NameIService service;
+    NameServiceimpl nameServiceimpl;
+    private static Name name;
 
-
-
-
-    @Test
-    void save() {
-        Name saved = this.service.create(this.name);
-      assertNotNull(saved);
-        System.out.println("name saved");
-    }
-
-    @Test
-    void read() {
+    @BeforeEach
+    void setUp(){
+        nameServiceimpl = new NameServiceimpl(nameRepository);
+        name = new Name.Builder()
+                .FirstName("Lug")
+                .MiddleName("Carol")
+                .LastName("Shas")
+                .build();
 
     }
 
     @Test
-    void tearDown() {
-        this.service.delete(this.name);
+    void a_create() {
+        nameRepository.save(name);
+
+        assertAll(
+                () -> assertNotNull(name.getFirstName()),
+                () -> assertNotNull(name.getLastName())
+
+        );
+
+        System.out.println("Name added");
     }
 
     @Test
-    void getAll() {
-        
+    void b_read() {
+       nameRepository.getReferenceById(name.getFirstName());
 
+        assertAll(
+                () -> assertNotNull(name.getFirstName())
+        );
+
+        System.out.println(name.toString());
+
+
+    }
+
+    @Test
+    void c_delete() {
+        nameRepository.delete(name);
+
+        assertAll(
+                () -> assertNotNull(name.getFirstName())
+        );
+
+        System.out.println("Name deleted");
+    }
+
+    @Test
+    void d_getAll() {
+        System.out.println(nameRepository.findAll());
     }
 }
+

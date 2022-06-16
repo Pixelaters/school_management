@@ -17,12 +17,13 @@ import za.ac.cput.repository.CityRepository;
 import za.ac.cput.service.CityService;
 
 @Service
-public class  CityServiceImpl implements CityService {
+public class  CityServiceImpl implements CityService { // as used by the other group members your class must be done outside of the impl package
+    //to show co-ordination with the rest of the group
 
     private static CityService cityService = null;
 
     @Autowired
-    private CityRepository cityRepository;
+    private CityRepository cityRepository; // cityRepository is mever used in this class look at breyton or my code for reference
 
     public CityServiceImpl() {
 
@@ -68,9 +69,9 @@ public class  CityServiceImpl implements CityService {
     @Override
     public City getCityByCountry(Country country) {
         return this.cityRepository.findByCountry(country);
-    }
+    }// you have to retrieve the country from the country class once again
 
-    @Override
+    @Override // delete should only delete by a single id not all of them
     public void deleteAll() {
         cityRepository.deleteAll();
         

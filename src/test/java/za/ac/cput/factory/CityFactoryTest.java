@@ -17,13 +17,13 @@ import za.ac.cput.entity.Country;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-
+//Please look at my test in Student Test or look at Employee Test for Reference
 public class CityFactoryTest {
     private static Country country;
 
     @BeforeAll
     public static void setUp()  {
-
+        //Country must be retrieved not filled in manually
         country = new Country.Builder()
                 .id("sa")
                 .name("South Africa")

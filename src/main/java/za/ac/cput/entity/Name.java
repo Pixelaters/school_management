@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Embeddable
-public class Name  {
+public class Name  {//Remove Setters but not in Builder class
 
     @NotNull
     private String firstName;

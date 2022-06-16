@@ -8,7 +8,8 @@ import za.ac.cput.service.NameIService;
 
 import java.util.List;
 @Service
-public class NameServiceimpl implements NameIService {
+public class NameServiceimpl implements NameIService {// as used by the other group members your class must be done outside of the impl package
+
     private final NameRepository nameRepository;
 
     @Autowired

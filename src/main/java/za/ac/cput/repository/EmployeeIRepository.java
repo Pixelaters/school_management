@@ -11,4 +11,6 @@ import za.ac.cput.entity.Employee;
  */
 @Repository
 public interface EmployeeIRepository extends JpaRepository<Employee,String> {
+
+    Employee findEmployeeByEmail(String email);
 }

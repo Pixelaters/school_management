@@ -17,18 +17,29 @@ import static org.junit.jupiter.api.Assertions.*;
 class StudentAddressFactoryTest {
 
     ArrayList<StudentAddress> studentAddress = new ArrayList<>();
-    private static final StudentAddress studentAddress1 = StudentAddressFactory.build("2501842",null);
-    private static final StudentAddress studentAddress2 = StudentAddressFactory.build("2896547",null);
-    private static final StudentAddress studentAddress3 = StudentAddressFactory.build("2963572",null);
+    private static final StudentAddress studentAddress1 = StudentAddressFactory.build("25015435",
+            AddressFactory.build("","mavericks","258",7128,"Maven",
+                    CityFactory.buildCity("120","Cape Town/CT",
+                            CountryFactory.builder("CT/RSA","RSA/CT"))));
+    private static final StudentAddress studentAddress2 = StudentAddressFactory.build("28965234",
+            AddressFactory.build("7","Austin","79",2100,"Nevada",
+                    CityFactory.buildCity("121","Johannesburg/JHB",
+                            CountryFactory.builder("JHB/RSA","RSA/JHB"))));
+    private static final StudentAddress studentAddress3 = StudentAddressFactory.build("23152687",
+            AddressFactory.build("2597","American Bash","85",3000,"AmaZulu",
+                    CityFactory.buildCity("123","KwaZulu-Natal/KZN",
+                            CountryFactory.builder("KZN/RSA","RSA/KZN"))));
     private static final StudentAddress studentAddress4 = studentAddress3;
 
     @Test
     void a_builder(){
-        studentAddress.add(studentAddress2);
+        studentAddress.add(studentAddress1);
         System.out.println("Added: " + studentAddress.get(0));
         studentAddress.add(studentAddress2);
         System.out.println("Added: " + studentAddress.get(1));
         assertNotNull(studentAddress);
+        studentAddress.add(studentAddress3);
+        System.out.println("Added: " + studentAddress.get(2));
         System.out.println("Builder test passed");
     }
 

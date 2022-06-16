@@ -22,11 +22,11 @@ public class CityFactoryTest {
     private static Country country;
 
     @BeforeAll
-    public static void setUp() throws Exception {
+    public static void setUp()  {
 
         country = new Country.Builder()
-                .setId("sa")
-                .setName("South Africa")
+                .id("sa")
+                .name("South Africa")
                 .build();
     }
 

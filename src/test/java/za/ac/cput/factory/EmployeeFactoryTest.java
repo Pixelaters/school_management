@@ -1,5 +1,9 @@
 package za.ac.cput.factory;
-
+/*Breyton Ernstzen (217203027)
+  ADP3 - June Assessment 2022
+  Date: 9 June 2022
+  School Management
+ */
 import org.junit.jupiter.api.MethodDescriptor;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
@@ -10,11 +14,7 @@ import za.ac.cput.entity.Name;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
-/*Breyton Ernstzen (217203027)
-  ADP3 - June Assessment 2022
-  Date: 9 June 2022
-  School Management
- */
+
 @TestMethodOrder(MethodOrderer.Alphanumeric.class)
 class EmployeeFactoryTest {
 
@@ -50,7 +50,7 @@ class EmployeeFactoryTest {
     @Test
     void b_objectEquality(){
 
-        //add another equality test here for three parameter inputs
+
         assertAll(
                 () -> assertNotEquals(employee1.getStaffId(),employee2.getStaffId()),
                 () -> assertNotEquals(employee1.getEmail(),employee2.getEmail()),

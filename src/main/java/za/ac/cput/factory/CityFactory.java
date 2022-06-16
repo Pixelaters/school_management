@@ -18,9 +18,10 @@ public class CityFactory {
         // valid object properties
         StringHelper.checkStringParam("id",id);
         StringHelper.checkStringParam("name",name);
-        if (Objects.isNull(country)) {
-            throw new IllegalArgumentException("The country can not be null");
-        }
+        //Country must be instantiated in the Country class and Objects.isNull is not preferably used here.
+//        if (Objects.isNull(country)) {
+//            throw new IllegalArgumentException("The country can not be null");
+//        }
 
         // if properties are valid create city instance
         return new City.Builder()

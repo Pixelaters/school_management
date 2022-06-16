@@ -12,8 +12,9 @@ import za.ac.cput.entity.Country;
 
 public interface CityService extends IService<City, String>  {
     List<City> getAll();
+    //Read class in impl package it should explain this
     City getCityByName(String name);
     City getCityByCountry(Country country);
-    void deleteAll();
+    void deleteAll();//should only be a single unit not all records
 
 }

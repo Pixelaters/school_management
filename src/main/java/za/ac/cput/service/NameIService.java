@@ -8,7 +8,7 @@ import za.ac.cput.entity.Name;
 
 import java.util.List;
 
-public interface NameIService extends IServicename<Name,String> {
+public interface NameIService extends IServicename<Name,String> {//Read class in impl package it should explain this
 
 
 

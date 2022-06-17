@@ -12,6 +12,7 @@ public class EmployeeAddressFactory {
 
     public static EmployeeAddress builder(String staffId,Address address){
 
+        //checks if string is empty. if empty, then throw an exception
         StringHelper.checkStringParam("staffId",staffId);
         return new EmployeeAddress.Builder()
                 .staffId(staffId)

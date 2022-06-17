@@ -19,7 +19,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.Alphanumeric.class)
 class EmployeeAPITest {
-    @Autowired private EmployeeService employeeService;
 
     @Autowired private EmployeeAPI employeeAPI;
 

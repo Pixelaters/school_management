@@ -1,5 +1,9 @@
 package za.ac.cput.api;
-
+/*Breyton Ernstzen (217203027)
+  ADP3 - June Assessment 2022
+  Date: 14 June 2022
+  School Management
+ */
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,12 +16,6 @@ import za.ac.cput.service.EmployeeService;
 import java.util.List;
 import java.util.Optional;
 import java.util.regex.Pattern;
-
-/*Breyton Ernstzen (217203027)
-  ADP3 - June Assessment 2022
-  Date: 14 June 2022
-  School Management
- */
 
 @Component
 public class EmployeeAPI {

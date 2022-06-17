@@ -23,11 +23,13 @@ public class EmployeeController {
 
     private final EmployeeIService employeeIService;
 
+    //Constructor
     @Autowired
     EmployeeController(EmployeeIService employeeIService) {
         this.employeeIService = employeeIService;
     }
 
+    //save an employee
     @PostMapping("save_employee")
     public ResponseEntity<Employee> create(@Valid @RequestBody Employee saveEmployee){
         log.info("Save request: {}",saveEmployee);
@@ -41,6 +43,7 @@ public class EmployeeController {
         }
     }
 
+    //read from the database
     @GetMapping("readEmployee/{empID}")
     public ResponseEntity<Employee> read(@PathVariable String empID){
         log.info("Read request: {}",empID);
@@ -54,6 +57,7 @@ public class EmployeeController {
         }
     }
 
+    //deletes user from the database
     @DeleteMapping("deleteEmployee/{empID}")
     public ResponseEntity<Employee> delete(@PathVariable String empID){
         log.info("Delete request: {}",empID);
@@ -63,6 +67,7 @@ public class EmployeeController {
 
     }
 
+    //get all employees
     @GetMapping("getAllEmployees")
     public ResponseEntity<List<Employee>> getAll(){
         List<Employee> list = this.employeeIService.getAll();

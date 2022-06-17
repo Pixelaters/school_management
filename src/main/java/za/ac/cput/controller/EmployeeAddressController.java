@@ -23,11 +23,13 @@ public class EmployeeAddressController {
 
     private final EmployeeAddressIService employeeAddressIService;
 
+    //constructor
     @Autowired
     public EmployeeAddressController(EmployeeAddressIService employeeAddressIService) {
         this.employeeAddressIService = employeeAddressIService;
     }
 
+    //add employee address
     @PostMapping("save_EmployeeAddress")
     public ResponseEntity<EmployeeAddress> create(@Valid @RequestBody EmployeeAddress saveEmployeeAddress){
         log.info("Save request: {}",saveEmployeeAddress);
@@ -41,6 +43,7 @@ public class EmployeeAddressController {
         }
     }
 
+    //read employee address
     @GetMapping("readEmployeeAddress/{empID}")
     public ResponseEntity<EmployeeAddress> read(@PathVariable String empID){
         log.info("Read request: {}",empID);
@@ -54,6 +57,7 @@ public class EmployeeAddressController {
         }
     }
 
+    //delete employee address by id
     @DeleteMapping("deleteEmployeeAddress/{empID}")
     public ResponseEntity<EmployeeAddress> delete(@PathVariable String empID){
         log.info("Delete request: {}",empID);
@@ -62,6 +66,7 @@ public class EmployeeAddressController {
         return ResponseEntity.noContent().build();
     }
 
+    //get all addresses
     @GetMapping("getAllEmployeeAddresses")
     public ResponseEntity<List<EmployeeAddress>> getAll(){
         List<EmployeeAddress> listEmployeeAddress = this.employeeAddressIService.getAll();

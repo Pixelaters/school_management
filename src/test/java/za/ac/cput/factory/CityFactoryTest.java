@@ -26,7 +26,7 @@ public class CityFactoryTest {
 
         country = new Country.Builder()
                 .setId("sa")
-                .setName("South Africa")
+                .Name("South Africa")
                 .build();
     }
 

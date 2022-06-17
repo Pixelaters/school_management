@@ -72,7 +72,7 @@ public class Country implements Serializable {
             return this;
         }
 
-        public Builder setName(String name){
+        public Builder Name(String name){
             this.name = name;
             return this;
         }

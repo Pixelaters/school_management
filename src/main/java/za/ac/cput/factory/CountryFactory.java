@@ -10,8 +10,6 @@ import za.ac.cput.entity.Country;
 import za.ac.cput.helper.StringHelper;
 
 
-//why you using email validation to check if country name?
-//pls use stringhelper
 public class CountryFactory {
     public static Country createCountry(String countryName, String countryId) {
 
@@ -23,7 +21,7 @@ public class CountryFactory {
 
         return new Country.Builder()
                 .setId(countryId)
-                .setName(countryName)
+                .Name(countryName)
                 .build();
 
     }

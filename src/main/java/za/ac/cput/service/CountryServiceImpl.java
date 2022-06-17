@@ -7,6 +7,11 @@ import za.ac.cput.service.impl.CountryService;
 
 import java.util.Collections;
 import java.util.List;
+
+/*
+Ethan George
+student number : 218008430
+ */
 @Service
 public class CountryServiceImpl implements CountryService {
 
@@ -21,6 +26,8 @@ public class CountryServiceImpl implements CountryService {
     public List<Country> getAll(){
         return this.countryRepository.findAll();
     }
+
+
 
     @Override
     public Country create(Country country){

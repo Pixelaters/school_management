@@ -1,5 +1,9 @@
 package za.ac.cput.factory;
-
+/*Breyton Ernstzen (217203027)
+  ADP3 - June Assessment 2022
+  Date: 9 June 2022
+  School Management
+ */
 import org.hibernate.validator.internal.constraintvalidators.bv.EmailValidator;
 import za.ac.cput.entity.Employee;
 import java.util.regex.*;
@@ -9,11 +13,6 @@ import za.ac.cput.helper.StringHelper;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/*Breyton Ernstzen (217203027)
-  ADP3 - June Assessment 2022
-  Date: 9 June 2022
-  School Management
- */
 public class EmployeeFactory {
     private static final String validation = "^(.+)@(.+)$";
 

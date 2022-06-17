@@ -1,3 +1,8 @@
+/* CityServiceTest.java
+Test class for City service
+Author: Ongezwa Gwaza (211272183)
+Date: 16 June 2022
+*/
 package za.ac.cput.service;
 
 import org.junit.jupiter.api.*;
@@ -11,7 +16,6 @@ import za.ac.cput.factory.CityFactory;
 import za.ac.cput.repository.CityRepository;
 import za.ac.cput.service.impl.CityIService;
 
-import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)

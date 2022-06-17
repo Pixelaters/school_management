@@ -1,17 +1,27 @@
+/* CityServiceTest.java
+Test class for City service
+Author: Ongezwa Gwaza (211272183)
+Date: 16 June 2022
+*/
 package za.ac.cput.service;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import za.ac.cput.entity.City;
 import za.ac.cput.entity.Country;
 import za.ac.cput.factory.CityFactory;
-import za.ac.cput.service.impl.CityServiceImpl;
+import za.ac.cput.repository.CityRepository;
+import za.ac.cput.service.impl.CityIService;
 
-import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(MockitoExtension.class)
 @TestMethodOrder(MethodOrderer.class)
 public class CityServiceTest {
+  
     private static CityService cityService = CityServiceImpl.getCityService();
     private static Country country;
     private static City testCity;
@@ -22,129 +32,77 @@ public class CityServiceTest {
 
         country = new Country.Builder().setId("sa").Name("South Africa").build();
 
-        testCity = CityFactory.buildCity("1", "Durban", country);
 
-        // create city instances
+    @Mock
+    private static CityRepository cityRepository;
 
-        city2 = CityFactory.buildCity("2","Joburg",country);
-                
-        city3 =CityFactory.buildCity("3","Capetown",country);
+    CityIService cityService;
+    private static Country country;
+    private static City city1,city2;
 
-        city4 =CityFactory.buildCity("4","Pretoria",country);
-    }
+    @BeforeEach
+    void setUp(){
+        cityService = new CityService(cityRepository);
+        country = new Country.Builder().id("sa").name("South Africa").build();
+        city1 = CityFactory.buildCity("1", "Durban", country);
+                city2 = CityFactory.buildCity("2","Joburg",country);
 
-    @AfterEach
-    public void cleanUpEach() throws Exception {
-        cityService.deleteAll();
-
-    }
-
-    @Test
-    @DisplayName("Test get all when database is empty")
-    public void getAll_if_database_isempty() {
-
-        List<City> cities = cityService.getAll();
-        System.out.println(cities);
-        Boolean citiesIsEmpty = cities.isEmpty();
-
-        assertTrue(citiesIsEmpty, "Database is empty as there are not items in the database");
-        System.out.println("Test passed : Database is empty");
 
     }
 
     @Test
-    @DisplayName("Test persistence of city in the database")
-    public void createCity_success() {
-        City city = cityService.create(testCity);
-        assertNotNull(city, "The saved city should not be null");
-        assertEquals(city.getId(), testCity.getId(),
-                "The saved id should be equal to the id of supplied city");
-        assertEquals(city.getName(), testCity.getName(),
-                "The names of the saved city and supplied city should be equal");
-        assertEquals(city.getCountry(), testCity.getCountry(), "The country fields should be equal");
-        System.out.println("Test passed: City created and saved");
+    void a_create(){
+        cityRepository.save(city1);
+        cityRepository.save(city2);
 
+        assertAll(
+                () -> assertNotNull(city1.getId()),
+                () -> assertNotNull(city2.getId()),
+                () -> assertNotNull(city1.getName()),
+                () -> assertNotNull(city2.getName()),
+                () -> assertNotNull(city1.getCountry()),
+                () -> assertNotNull(city2.getCountry())
+
+        );
+
+        System.out.println("Cities added....");
     }
 
     @Test
-    @DisplayName("List all the cities in the database")
-    public void getAll_when_database_has_values() {
+    void b_read() {
+        cityRepository.getReferenceById(city1.getId());
+        cityRepository.getReferenceById(city2.getId());
 
-        // save the cities to database
-        System.out.println(cityService.getAll());
-        cityService.create(city2);
-        cityService.create(city3);
-        cityService.create(city4);
+        assertAll(
+                () -> assertNotNull(city1.getId()),
+                () -> assertNotNull(city2.getId()),
+                () -> assertNotSame(city1.getId(),city2.getId()),
+                () -> assertNotEquals(city1.getId(),city2.getId())
+        );
 
-        List<City> cities = cityService.getAll();
-        assertEquals(3, cities.size(),
-                "The number of elements in the database should be equal to the number of items added");
-        System.out.println("Test passed : All cities listed");
-
+        System.out.println(city1.toString());
+        System.out.println(city2.toString());
     }
 
     @Test
-    @DisplayName("Get one city by city id")
-    public void read_should_find_city_by_id() {
+    void c_delete(){
+        cityRepository.deleteById(city1.getId());
+        cityRepository.deleteById(city2.getId());
 
-        cityService.create(testCity);
-        cityService.create(city2);
-        cityService.create(city3);
-        City foundCity = cityService.read(testCity.getId());
-        assertEquals(foundCity, testCity, "The city found in the database should be equal to the city added");
-        System.out.println("Test passed : One city read from database");
+        assertAll(
+                () -> assertNotNull(city1.getId()),
+                () -> assertNotNull(city2.getId()),
+                () -> assertNotSame(city1.getId(),city2.getId()),
+                () -> assertNotEquals(city1.getId(),city2.getId())
+
+        );
+
+        System.out.println("Deletion successful....");
     }
 
     @Test
-    @DisplayName("Get one city by city name")
-    public void getCityByName_success() {
-        // save cities
-        cityService.create(testCity);
-        cityService.create(city2);
-        cityService.create(city3);
-        // get city by name
-        City foundCity = cityService.getCityByName(testCity.getName());
-        assertEquals(foundCity, testCity, "The city found in the database should be equal to the city added");
-        System.out.println("Test passed : City found by name");
-    }
-
-    @Test
-    @DisplayName("Get one city by country")
-    public void getCityByCountry_success() {
-        // save cities
-        cityService.create(testCity);
-        cityService.create(city2);
-        cityService.create(city3);
-        // get city by publisher
-        City foundCity = cityService.getCityByCountry(testCity.getCountry());
-        assertEquals(foundCity, testCity, "The city found in the database should be equal to the city added");
-        System.out.println("Test passed : City Found by country");
-    }
-
-
-
-    @Test
-    @DisplayName("Delete city by id")
-    public void delete() {
-        // save cities
-        cityService.create(testCity);
-        cityService.create(city2);
-        cityService.create(city3);
-        // delete city
-         cityService.delete(testCity.getId());
-         City foundCity = cityService.read(testCity.getId());
-        assertNull(foundCity, testCity.getName() + " has been deleted successfully");
-        System.out.println("Test passed : Cities successfully deleted");
-
-
-        // test if the other cities are still available
-        List<City> cities = cityService.getAll();
-        Boolean city2isPresent = cities.contains(city2);
-        Boolean city3isPresent = cities.contains(city3);
-        assertTrue(city2isPresent, city2.getName() + " was not deleted");
-        assertTrue(city3isPresent, city3.getName() + " was not deleted");
-        System.out.println("Test passed : Cities not deleted");
-
+    void d_getAll() {
+        System.out.println(cityRepository.findAll());
     }
 
 }

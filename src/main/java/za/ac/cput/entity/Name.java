@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Embeddable
-public class Name  {
+public class Name  {//Remove Setters but not in Builder class
 
     @NotNull
     private String firstName;
@@ -85,17 +85,17 @@ public class Name  {
         private String middleName;
         private String lastName;
 
-        public Builder setFirstName(String firstName) {
+        public Builder FirstName(String firstName) {
             this.firstName = firstName;
             return this;
         }
 
-        public Builder setMiddleName(String middleName) {
+        public Builder MiddleName(String middleName) {
             this.middleName = middleName;
             return this;
         }
 
-        public Builder setLastName(String lastName) {
+        public Builder LastName(String lastName) {
             this.lastName = lastName;
             return this;
         }

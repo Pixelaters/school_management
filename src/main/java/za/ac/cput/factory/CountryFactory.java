@@ -25,6 +25,7 @@ public class CountryFactory {
                 .build();
 
     }
+
 //    public static Country builder(String s, String south_africa) {
 //
 //    }
@@ -32,11 +33,11 @@ public class CountryFactory {
 //    }
 
 
-//    public static Country builder(String countryId, String countryName) {
-//
-//        StringHelper.checkStringParam("1" , countryId);
-//        StringHelper.checkStringParam("2" , countryName);
-//        return new Country.Builder().setCountryId().setCountryName(countryName);
-//    }
+    public static Country builder(String countryId, String countryName) {
+
+        StringHelper.checkStringParam("1" , countryId);
+        StringHelper.checkStringParam("2" , countryName);
+        return new Country.Builder().id(countryId).name(countryName).build();
+    }
 }
 

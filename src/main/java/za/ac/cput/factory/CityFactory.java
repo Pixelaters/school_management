@@ -5,7 +5,6 @@ Date: 13 June 2022
 */
 package za.ac.cput.factory;
 
-import java.util.Objects;
 
 import za.ac.cput.entity.City;
 import za.ac.cput.entity.Country;
@@ -18,9 +17,7 @@ public class CityFactory {
         // valid object properties
         StringHelper.checkStringParam("id",id);
         StringHelper.checkStringParam("name",name);
-        if (Objects.isNull(country)) {
-            throw new IllegalArgumentException("The country can not be null");
-        }
+
 
         // if properties are valid create city instance
         return new City.Builder()

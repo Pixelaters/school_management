@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Entity
 //@Embeddable
-public class City implements Serializable {
+public class City implements Serializable {// used serializable to write files to the Database
     // Entity variables
 
     @Id
@@ -20,7 +20,7 @@ public class City implements Serializable {
     private String name;
 
     //@Embedded
-    @OneToMany(targetEntity = Country.class, mappedBy = "id",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = Country.class, mappedBy = "id",fetch = FetchType.LAZY,cascade = CascadeType.ALL)//This retrieves the Country records
     private Set<Country> country; //false error
 
     // Default constructor

@@ -67,12 +67,12 @@ public class Country implements Serializable {
         private String id;
         private String name;
 
-        public Builder setId(String id){
+        public Builder id(String id){
             this.id = id;
             return this;
         }
 
-        public Builder Name(String name){
+        public Builder name(String name){
             this.name = name;
             return this;
         }

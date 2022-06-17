@@ -16,8 +16,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import za.ac.cput.entity.Employee;
 import za.ac.cput.factory.EmployeeFactory;
+import za.ac.cput.factory.NameFactory;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -32,7 +34,8 @@ class EmployeeControllerTest {
     @BeforeEach
     void setUp() {
         assertNotNull(employeeController);
-        this.employee = EmployeeFactory.builder("121","breyton@gmail.com",null);
+        this.employee = EmployeeFactory.builder("121","breyton@gmail.com",
+                NameFactory.buildName("Breyton","Sean","Ernstzen"));
         this.urlBase = "http://localhost:" + this.portNo + "/school_management/employee/";
 
     }
@@ -47,7 +50,12 @@ class EmployeeControllerTest {
         System.out.println(responseEntity);
         assertAll(
                 () -> assertEquals(HttpStatus.OK,responseEntity.getStatusCode()),
-                () -> assertNotNull(responseEntity.getBody())
+                () -> assertNotNull(responseEntity.getBody()),
+                () -> assertSame("121",employee.getStaffId()),
+                () -> assertSame("breyton@gmail.com",employee.getEmail()),
+                () -> assertSame("Breyton",employee.getName().getFirstName()),
+                () -> assertSame("Sean",employee.getName().getMiddleName()),
+                () -> assertSame("Ernstzen",employee.getName().getLastName())
         );
 
     }
@@ -60,7 +68,12 @@ class EmployeeControllerTest {
 
         assertAll(
                 () -> assertEquals(HttpStatus.OK,responseEntity.getStatusCode()),
-                () -> assertNotNull(responseEntity.getBody())
+                () -> assertNotNull(responseEntity.getBody()),
+                () -> assertSame("121",employee.getStaffId()),
+                () -> assertSame("breyton@gmail.com",employee.getEmail()),
+                () -> assertSame("Breyton",employee.getName().getFirstName()),
+                () -> assertSame("Sean",employee.getName().getMiddleName()),
+                () -> assertSame("Ernstzen",employee.getName().getLastName())
         );
     }
 
@@ -69,7 +82,14 @@ class EmployeeControllerTest {
         String url = urlBase + "deleteEmployee/" + employee.getStaffId();
         this.testRestTemplate.delete(url);
 
-        //add some unit tests here
+        assertAll(
+                () -> assertSame("121",employee.getStaffId()),
+                () -> assertSame("breyton@gmail.com",employee.getEmail()),
+                () -> assertSame("Breyton",employee.getName().getFirstName()),
+                () -> assertSame("Sean",employee.getName().getMiddleName()),
+                () -> assertSame("Ernstzen",employee.getName().getLastName())
+        );
+        System.out.println("Deletion success...");
 
     }
 
@@ -81,11 +101,15 @@ class EmployeeControllerTest {
         ResponseEntity<Employee[]> responseEntity = this.testRestTemplate
                 .getForEntity(url,Employee[].class);
 
-        System.out.println(Arrays.asList(responseEntity.getBody()));
+        System.out.println(Arrays.asList(Objects.requireNonNull(responseEntity.getBody())));
+
         assertAll(
                 () -> assertEquals(HttpStatus.OK,responseEntity.getStatusCode()),
-                () -> assertTrue(responseEntity.getBody().length == 0)
+                () -> assertTrue(responseEntity.getBody().length == 0),
+                () -> assertNotNull(responseEntity)
         );
+
+        System.out.println("Test passed...");
 
     }
 }

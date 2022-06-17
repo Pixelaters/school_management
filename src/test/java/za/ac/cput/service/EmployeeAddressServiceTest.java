@@ -12,6 +12,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import za.ac.cput.entity.EmployeeAddress;
+import za.ac.cput.factory.AddressFactory;
+import za.ac.cput.factory.CityFactory;
+import za.ac.cput.factory.CountryFactory;
 import za.ac.cput.repository.EmployeeAddressIRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -32,12 +35,18 @@ class EmployeeAddressServiceTest {
 
         employeeAddress1 = new EmployeeAddress.Builder()
                 .staffId("121")
-                .address(null)
+                .address(AddressFactory.build("E1","Mountain Hill","Grove Street",
+                        "6810",1234,
+                        CityFactory.buildCity("SRS1","Pretoria",
+                                CountryFactory.builder("South Africa","RSA-P"))))
                 .build();
 
         employeeAddress2 = new EmployeeAddress.Builder()
                 .staffId("101")
-                .address(null)
+                .address(AddressFactory.build("P369","Potts","141",
+                        "Grover Street",2244,
+                        CityFactory.buildCity("D1","Durban",
+                                CountryFactory.builder("South Africa","RSA-D"))))
                 .build();
     }
 
@@ -47,10 +56,12 @@ class EmployeeAddressServiceTest {
         employeeAddressIRepository.save(employeeAddress2);
 
         assertAll(
+                () -> assertNotNull(employeeAddress1),
+                () -> assertNotNull(employeeAddress2),
                 () -> assertNotNull(employeeAddress1.getStaffId()),
                 () -> assertNotNull(employeeAddress2.getStaffId()),
-                () -> assertNull(employeeAddress1.getAddress()),
-                () -> assertNull(employeeAddress2.getAddress())
+                () -> assertNotNull(employeeAddress1.getAddress()),
+                () -> assertNotNull(employeeAddress2.getAddress())
         );
 
         System.out.println("Employees added...");

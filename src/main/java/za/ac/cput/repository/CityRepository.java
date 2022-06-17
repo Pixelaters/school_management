@@ -9,10 +9,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import za.ac.cput.entity.City;
-import za.ac.cput.entity.Country;
+
 
 @Repository
 public interface CityRepository extends JpaRepository<City, String> {
-    City findByName(String name);
-    City findByCountry(Country country);
+    City findCityByName(String name);
+
 }

@@ -17,8 +17,8 @@ public class NameFactory {
         StringHelper.setEmptyIfNull(middleName);
         StringHelper.checkStringParam("lastName" ,lastName);
 
-        return new Name.Builder().setFirstName(firstName).setMiddleName(middleName)
-                .setLastName(lastName).build();
+        return new Name.Builder().FirstName(firstName).MiddleName(middleName)
+                .LastName(lastName).build();
     }
 
 }

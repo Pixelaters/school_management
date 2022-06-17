@@ -9,13 +9,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import za.ac.cput.entity.City;
-import za.ac.cput.entity.Country;
+
 
 @Repository
 public interface CityRepository extends JpaRepository<City, String> {
-    //Country must first be found before you can use it
-    // so the country function here finds your personal country record
-    // and does not use the database as specified
-    City findByName(String name);
-    City findByCountry(Country country);
+    City findCityByName(String name);
+
 }

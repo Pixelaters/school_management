@@ -1,7 +1,7 @@
 package za.ac.cput.controller;
 
 import za.ac.cput.entity.City;
-import za.ac.cput.service.CityService;
+import za.ac.cput.service.impl.CityIService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +19,7 @@ import java.util.List;
 public class CityController {
 
     @Autowired
-    private CityService cityService;
+    private CityIService cityService;
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<City> createCity(@Valid @RequestBody City city) {

@@ -37,14 +37,14 @@ public class EmployeeCityService implements EmployeeCityIService {
     @Override
     public List<Name> findEmployeeNamesByCityId(String cityId) {
         List<Name> names =  new ArrayList();
-        try {
-            List<EmployeeAddress> employeeAddresses = employeeAddressIRepository.getEmployeeAddressesByAddress_CityId(cityId);
-            Set<String> staffIds = new HashSet<>(employeeAddresses.stream().map((employeeAddress) -> employeeAddress.getStaffId()).collect(Collectors.toList()));
-            List<Employee> employees = employeeIRepository.getEmployeesByStaffIdInSet(staffIds);
-             names = employees.stream().map((employee -> employee.getName())).collect(Collectors.toList());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+//        try {
+//            List<EmployeeAddress> employeeAddresses = employeeAddressIRepository.getEmployeeAddressesByAddress_CityId(cityId);
+//            Set<String> staffIds = new HashSet<>(employeeAddresses.stream().map((employeeAddress) -> employeeAddress.getStaffId()).collect(Collectors.toList()));
+//            List<Employee> employees = employeeIRepository.getEmployeesByStaffIdInSet(staffIds);
+//             names = employees.stream().map((employee -> employee.getName())).collect(Collectors.toList());
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        }
         
         return names;
     }

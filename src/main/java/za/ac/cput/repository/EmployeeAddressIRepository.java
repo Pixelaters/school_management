@@ -14,5 +14,5 @@ import java.util.List;
 @Repository
 public interface EmployeeAddressIRepository extends JpaRepository<EmployeeAddress,String> {
 
-    List<EmployeeAddress> getEmployeeAddressesByAddress_CityId(String cityId);
+//    List<EmployeeAddress> getEmployeeAddressesByAddress_CityId(String cityId);
 }

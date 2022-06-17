@@ -22,6 +22,11 @@ public class CityFactoryTest {
     
     private static final Country country = new Country.Builder().id("sa").name("South Africa").build();
 
+        country = new Country.Builder()
+                .setId("sa")
+                .Name("South Africa")
+                .build();
+    }
     private static final City city1 = CityFactory.buildCity("1", "Durban", country);
 
         // create city instances

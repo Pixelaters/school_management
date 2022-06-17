@@ -21,6 +21,16 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
 @TestMethodOrder(MethodOrderer.class)
 public class CityServiceTest {
+  
+    private static CityService cityService = CityServiceImpl.getCityService();
+    private static Country country;
+    private static City testCity;
+    private static City city2, city3, city4;
+
+    @BeforeAll
+    public static void setUp() throws Exception {
+
+        country = new Country.Builder().setId("sa").Name("South Africa").build();
 
 
     @Mock

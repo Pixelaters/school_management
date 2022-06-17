@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import za.ac.cput.service.impl.EmployeeIService;
 
 
 import javax.validation.Valid;
@@ -18,13 +19,17 @@ import java.util.List;
 @RequestMapping("/school-management/cities")
 public class CityController {
 
-    @Autowired
-    private CityIService cityService;
+    private final CityIService cityIService;
 
-    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @Autowired
+    CityController(CityIService cityIService) {
+        this.cityIService = cityIService;
+    }
+
+    @PostMapping(value="/create",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<City> createCity(@Valid @RequestBody City city) {
         try {
-            City newCity = cityService.create(city);
+            City newCity = cityIService.create(city);
             return ResponseEntity.ok(newCity);
         }catch (Exception e){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
@@ -36,7 +41,7 @@ public class CityController {
     public ResponseEntity<City> read(@PathVariable String cityId){
 
         try{
-            City city = cityService.read(cityId);
+            City city = cityIService.read(cityId);
             if(city ==  null){
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
@@ -51,11 +56,11 @@ public class CityController {
     public ResponseEntity<Void> delete(@PathVariable String cityId){
 
         try {
-            City city = cityService.read(cityId);
+            City city = cityIService.read(cityId);
             if(city ==  null){
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
-            this.cityService.delete(cityId);
+            this.cityIService.delete(cityId);
             return ResponseEntity.noContent().build();
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
@@ -66,7 +71,7 @@ public class CityController {
     @PutMapping(value="/update/{cityId}",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<City> updateCity( @PathVariable String cityId,@Valid @RequestBody City city) {
         try {
-            City newCity = cityService.update(city);
+            City newCity = cityIService.update(city);
             return ResponseEntity.ok(newCity);
         }catch (Exception e){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
@@ -76,7 +81,7 @@ public class CityController {
 
     @GetMapping(value = "/getall", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<City>> getAll(){
-        List<City> cities = cityService.getAll();
+        List<City> cities = cityIService.getAll();
         return ResponseEntity.ok(cities);
     }
 

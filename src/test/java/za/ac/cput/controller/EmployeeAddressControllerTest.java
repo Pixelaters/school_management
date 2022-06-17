@@ -15,6 +15,9 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import za.ac.cput.entity.EmployeeAddress;
+import za.ac.cput.factory.AddressFactory;
+import za.ac.cput.factory.CityFactory;
+import za.ac.cput.factory.CountryFactory;
 import za.ac.cput.factory.EmployeeAddressFactory;
 
 import java.util.Arrays;
@@ -33,12 +36,15 @@ class EmployeeAddressControllerTest {
     @BeforeEach
     void setUp() {
         assertNotNull(employeeAddressController);
-        this.employeeAddress = EmployeeAddressFactory.builder("121",null);
+        this.employeeAddress = EmployeeAddressFactory.builder("121", AddressFactory.build("U123",
+                "Newlands Estate","124","Ben Drive Ave",7310,
+                CityFactory.buildCity("P40","Pretoria", CountryFactory.builder("RSA-P40",
+                        "South Africa"))));
         this.urlBase = "http://localhost:" + this.portNo + "/school_management/employeeAddress/";
     }
 
     @Test
-    void create() {
+    void a_create() {
         String url = urlBase + "save_EmployeeAddress";
         System.out.println(url);
 
@@ -53,7 +59,7 @@ class EmployeeAddressControllerTest {
     }
 
     @Test
-    void read() {
+    void b_read() {
         String url = urlBase + "readEmployeeAddress/" + employeeAddress.getStaffId();
 
         ResponseEntity<EmployeeAddress> responseEntity = this.testRestTemplate
@@ -67,15 +73,18 @@ class EmployeeAddressControllerTest {
     }
 
     @Test
-    void delete() {
+    void c_delete() {
         String url = urlBase + "deleteEmployeeAddress/" + employeeAddress.getStaffId();
         this.testRestTemplate.delete(url);
 
-        //add some additional tests
+        assertAll(
+                () -> assertNotNull(employeeAddress),
+                () -> assertSame("121", employeeAddress.getStaffId())
+                );
     }
 
     @Test
-    void getAll() {
+    void d_getAll() {
         String url = urlBase + "getAllEmployeeAddresses";
         System.out.println(url);
 

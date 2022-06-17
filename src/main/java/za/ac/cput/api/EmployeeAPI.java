@@ -32,9 +32,13 @@ public class EmployeeAPI {
         Optional<Employee> empID = employeeIRepository.findById(employee.getStaffId());
         Optional<Employee> newEmployee = Optional.ofNullable(employeeIRepository.findEmployeeByEmail(employee.getEmail()));
 
+        //first checks if employee is present/exists with a specific email
+        //if employee exists with that email, then it should return a message that an email is already in use
         if (newEmployee.isPresent()) {
             throw new IllegalStateException("Email already exists");
         }
+        //checks if an empID is already exists in the database
+        //if the id is already in use, it should output a message that says that the id is already in use
         if(empID.isPresent()){
             throw new IllegalStateException("ID already exists");
         }
@@ -56,10 +60,13 @@ public class EmployeeAPI {
     public Employee delete(Employee toDelete){
         Optional<Employee> staffID = employeeIRepository.findById(toDelete.getStaffId());
 
+        //if the id exists in the database
+        //delete employee by that id
         if(staffID.isPresent()){
             this.employeeService.delete(toDelete.getStaffId());
 
         }else {
+            //returns if the id does not exists in the database
             throw new IllegalStateException("Employee not found");
         }
             return toDelete;

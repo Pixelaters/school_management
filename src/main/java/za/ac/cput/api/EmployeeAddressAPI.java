@@ -59,6 +59,7 @@ public class EmployeeAddressAPI {
             this.employeeAddressService.delete(toDelete.getStaffId());
 
         }else {
+            //if employee not found
             throw new IllegalStateException("Employee not found");
         }
         return toDelete;

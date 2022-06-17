@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import za.ac.cput.api.EmployeeAPI;
 import za.ac.cput.entity.Employee;
 import za.ac.cput.service.impl.EmployeeIService;
 
@@ -22,11 +23,13 @@ import java.util.List;
 public class EmployeeController {
 
     private final EmployeeIService employeeIService;
+    private final EmployeeAPI api;
 
     //Constructor
     @Autowired
-    EmployeeController(EmployeeIService employeeIService) {
+    EmployeeController(EmployeeIService employeeIService, EmployeeAPI api) {
         this.employeeIService = employeeIService;
+        this.api = api;
     }
 
     //save an employee
@@ -35,7 +38,7 @@ public class EmployeeController {
         log.info("Save request: {}",saveEmployee);
 
         try{
-            Employee newEmployee = employeeIService.create(saveEmployee);
+            Employee newEmployee = this.api.create(saveEmployee);
             return ResponseEntity.ok(newEmployee);
 
         }catch(IllegalArgumentException e){

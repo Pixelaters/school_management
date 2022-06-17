@@ -9,7 +9,9 @@ import za.ac.cput.entity.Employee;
 import za.ac.cput.repository.EmployeeIRepository;
 import za.ac.cput.service.EmployeeService;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.regex.Pattern;
 
 /*Breyton Ernstzen (217203027)
   ADP3 - June Assessment 2022
@@ -42,21 +44,27 @@ public class EmployeeAPI {
     }
 
 
-    public ResponseEntity<Employee> read(Employee employee) {
-        Optional<Employee> staffID = Optional.ofNullable(this.employeeService.read(employee.getStaffId()));
+    public Employee read(Employee getEmployee) {
+        Optional<Employee> staffID = employeeIRepository.findById(getEmployee.getStaffId());
 
-        try {
             //checks if staff id exists. then returns the email
-            if (staffID.isPresent()) {
-                return ResponseEntity.ok(employeeService.read(employee.getEmail()));
-
+            if (staffID.isEmpty()) {
+                throw new IllegalStateException("Employee not found");
             }
-
-        } catch (IllegalArgumentException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Employee not found");
-        }
         //returns name
-        return ResponseEntity.ok(employeeService.read(employee.getName().getFirstName()));
+        return this.employeeService.read(getEmployee.getName() + getEmployee.getEmail());
+    }
+
+    public Employee delete(Employee toDelete){
+        Optional<Employee> staffID = employeeIRepository.findById(toDelete.getStaffId());
+
+        if(staffID.isPresent()){
+            this.employeeService.delete(toDelete.getStaffId());
+
+        }else {
+            throw new IllegalStateException("Employee not found");
+        }
+            return toDelete;
     }
 
 }

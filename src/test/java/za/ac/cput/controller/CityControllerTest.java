@@ -34,13 +34,13 @@ public class CityControllerTest {
     void setUp() {
         assertNotNull(cityController);
         this.city = CityFactory.buildCity("121","breyton@gmail.com",null);
-        this.urlBase = "http://localhost:" + this.portNo + "/school_management/city/";
+        this.urlBase = "http://localhost:" + this.portNo + "/school_management/cities/";
 
     }
 
     @Test
     void a_create() {
-       String url = urlBase + "save_city";
+       String url = urlBase + "create";
         System.out.println(url);
 
         ResponseEntity<City> responseEntity = this.testRestTemplate
@@ -55,7 +55,7 @@ public class CityControllerTest {
 
     @Test
     void b_read() {
-        String url = urlBase + "readCity/" + city.getId();
+        String url = urlBase + "read/" + city.getId();
         ResponseEntity<City> responseEntity = this.testRestTemplate
                 .getForEntity(url,City.class);
 
@@ -67,7 +67,7 @@ public class CityControllerTest {
 
     @Test
     void c_delete() {
-        String url = urlBase + "deleteCity/" + city.getId();
+        String url = urlBase + "delete/" + city.getId();
         this.testRestTemplate.delete(url);
 
         //add some unit tests here

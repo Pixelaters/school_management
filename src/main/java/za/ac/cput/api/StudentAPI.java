@@ -21,11 +21,11 @@ import java.util.Optional;
  */
 @Component
 public class StudentAPI {
-    private StudentService studentService;
-    private StudentIRepository studentIRepository;
+    private final StudentService studentService;
+    private final StudentIRepository studentIRepository;
 
-    private StudentAddressService studentAddressService;
-    private StudentAddressIRepository studentAddressIRepository;
+    private final StudentAddressService studentAddressService;
+    private final StudentAddressIRepository studentAddressIRepository;
 
     @Autowired
     public StudentAPI(StudentService studentService, StudentIRepository studentIRepository,StudentAddressService studentAddressService, StudentAddressIRepository studentAddressIRepository){
@@ -36,7 +36,7 @@ public class StudentAPI {
 
     }
 
-    public Student create(Student student){
+    public Student createStud(Student student){
         Optional<Student> studId = studentIRepository.findById(student.getStudentId());
         Optional<Student> studentLastName = Optional.ofNullable(studentIRepository.findStudentByLastName(student.getName().getLastName()));
 
@@ -50,9 +50,9 @@ public class StudentAPI {
     return this.studentIRepository.save(student);
     }
 
-    public StudentAddress create(StudentAddress studentAddress){
+    public StudentAddress createStudAdd(StudentAddress studentAddress){
         Optional<StudentAddress> studId = studentAddressIRepository.findById(studentAddress.getStudentId());
-        Optional<StudentAddress> studentCountry = Optional.ofNullable(studentAddressIRepository.findStudentAddressByCountry(studentAddress.getAddress().getCity().getCountry().getName()));
+        Optional<StudentAddress> studentCountry = Optional.ofNullable(studentAddressIRepository.findStudentAddressByCountry(studentAddress.getAddress().getCity().getCountry().toString()));
 
         if (studentCountry.isPresent()){
             throw new IllegalStateException("Country was not found");
@@ -61,42 +61,41 @@ public class StudentAPI {
         if (studId.isPresent()){
             throw new IllegalStateException("ID was not Found");
         }
+
+
         return this.studentAddressIRepository.save(studentAddress);
     }
 
-    public ResponseEntity<Student> read(Student student){
+    public Student readLastName(Student student){
         Optional<Student> studId = Optional.ofNullable(this.studentService.read(student.getStudentId()));
 
-        try {
 
 
-        if (studId.isPresent()){
-            return ResponseEntity.ok(studentService.read(student.getName().getLastName()));
+
+        if (studId.isEmpty()) {
+            throw new IllegalStateException("Student Id not found");
         }
 
-    } catch(IllegalArgumentException e){
-        throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Student last name not found");
-        }
+
         // returns LastName of student
-        return ResponseEntity.ok(studentService.read(student.getName().getLastName()));
+        return this.studentService.read(student.getName().getLastName());
     }
 
-    public ResponseEntity<StudentAddress> read(StudentAddress studentAddress){
-        Optional<StudentAddress> studAddId = Optional.ofNullable(this.studentAddressService.read(studentAddress.getStudentId()));
+    public StudentAddress readStudentCountry(StudentAddress studentAddress){
+       Optional<StudentAddress> studId = Optional.ofNullable(studentAddressService.read(studentAddress.getStudentId()));
 
-        try {
-            if (studAddId.isPresent()){
-                return ResponseEntity.ok(studentAddressService.read(studentAddress.getAddress().getCity().getCountry().getName()));
-            }
+       if (studId.isEmpty()){
+           throw new IllegalStateException("StudentId was not found");
+       }
 
+       return this.studentAddressService.read(studentAddress.getAddress().getCity().getCountry().toString());
 
-        }catch (IllegalArgumentException i){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Student Country was not found");
-        }
-
-        // return Country of Student
-        return ResponseEntity.ok(studentAddressService.read(studentAddress.getAddress().getCity().getCountry().getName()));
     }
 
 
-}
+   }
+
+
+
+
+

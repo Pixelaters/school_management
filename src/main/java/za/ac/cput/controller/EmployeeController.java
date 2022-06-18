@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import za.ac.cput.api.EmployeeAPI;
 import za.ac.cput.entity.Employee;
 import za.ac.cput.service.impl.EmployeeIService;
 
@@ -22,18 +23,22 @@ import java.util.List;
 public class EmployeeController {
 
     private final EmployeeIService employeeIService;
+    private final EmployeeAPI api;
 
+    //Constructor
     @Autowired
-    EmployeeController(EmployeeIService employeeIService) {
+    EmployeeController(EmployeeIService employeeIService, EmployeeAPI api) {
         this.employeeIService = employeeIService;
+        this.api = api;
     }
 
+    //save an employee
     @PostMapping("save_employee")
     public ResponseEntity<Employee> create(@Valid @RequestBody Employee saveEmployee){
         log.info("Save request: {}",saveEmployee);
 
         try{
-            Employee newEmployee = employeeIService.create(saveEmployee);
+            Employee newEmployee = this.api.create(saveEmployee);
             return ResponseEntity.ok(newEmployee);
 
         }catch(IllegalArgumentException e){
@@ -41,6 +46,7 @@ public class EmployeeController {
         }
     }
 
+    //read from the database
     @GetMapping("readEmployee/{empID}")
     public ResponseEntity<Employee> read(@PathVariable String empID){
         log.info("Read request: {}",empID);
@@ -54,6 +60,7 @@ public class EmployeeController {
         }
     }
 
+    //deletes user from the database
     @DeleteMapping("deleteEmployee/{empID}")
     public ResponseEntity<Employee> delete(@PathVariable String empID){
         log.info("Delete request: {}",empID);
@@ -63,6 +70,7 @@ public class EmployeeController {
 
     }
 
+    //get all employees
     @GetMapping("getAllEmployees")
     public ResponseEntity<List<Employee>> getAll(){
         List<Employee> list = this.employeeIService.getAll();

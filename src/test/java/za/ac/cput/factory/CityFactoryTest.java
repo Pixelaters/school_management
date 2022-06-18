@@ -10,6 +10,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 import za.ac.cput.entity.City;
 import za.ac.cput.entity.Country;
+import za.ac.cput.entity.Name;
 
 
 import java.util.ArrayList;
@@ -22,11 +23,6 @@ public class CityFactoryTest {
     
     private static final Country country = new Country.Builder().id("sa").name("South Africa").build();
 
-        country = new Country.Builder()
-                .setId("sa")
-                .Name("South Africa")
-                .build();
-    }
     private static final City city1 = CityFactory.buildCity("1", "Durban", country);
 
         // create city instances

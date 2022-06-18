@@ -85,5 +85,9 @@ public class CityController {
         return ResponseEntity.ok(cities);
     }
 
-    
+    @GetMapping("/getAllCitiesInCountry")
+    public List<City> findByCityByCountryId(String countryId){
+        return cityIService.findByCityByCountryId(countryId);
+    }
+
 }

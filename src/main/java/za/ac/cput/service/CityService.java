@@ -45,19 +45,11 @@ public class  CityService implements CityIService {
     }
 
     @Override
-    public List<City> findByCityByCountryId(String countryId) {
-        return cityRepository.findCityByCountryId(countryId);
-    }
-
-    @Override
     public List<City> getAll() {
         return this.cityRepository.findAll();
     }
 
-    public List<City> getAllCitiesUsingJPQL(){
-        return cityRepository.getAllCitiesUsingJPQL();
-    }
-
+    @Override
     public List<City> findByCityByCountryId(String countryId){
         return cityRepository.findCityByCountryId(countryId);
     }

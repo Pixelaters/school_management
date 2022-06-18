@@ -11,14 +11,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import za.ac.cput.entity.Address;
-import za.ac.cput.entity.EmployeeAddress;
+import za.ac.cput.domain.Address;
+import za.ac.cput.domain.EmployeeAddress;
 import za.ac.cput.factory.AddressFactory;
 import za.ac.cput.factory.CityFactory;
 import za.ac.cput.factory.CountryFactory;
 import za.ac.cput.factory.EmployeeAddressFactory;
-
-import java.lang.reflect.Method;
 
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest

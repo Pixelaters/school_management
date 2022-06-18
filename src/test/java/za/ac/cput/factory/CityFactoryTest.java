@@ -1,6 +1,6 @@
 /* CityFactoryTest.java
 Test class for the City Factory
-Author: Ongezwa Gwaza (211272183)
+Author: Ongezwa Gwaza (211272183),Ziyaad Petersen(219083479), Raeece Samuels (217283764), Breyton Ernstzen (217203027)
 Date: 13 June 2022
 */
 package za.ac.cput.factory;
@@ -8,9 +8,8 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
-import za.ac.cput.entity.City;
-import za.ac.cput.entity.Country;
-import za.ac.cput.entity.Name;
+import za.ac.cput.domain.City;
+import za.ac.cput.domain.Country;
 
 
 import java.util.ArrayList;

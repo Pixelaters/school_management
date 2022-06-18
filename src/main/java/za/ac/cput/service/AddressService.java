@@ -1,5 +1,8 @@
 //package za.ac.cput.service;
-//
+//Author: Ziyaad Petersen(219083479)
+
+//WE DIDNT NEED THIS CLASS
+
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Service;
 //import za.ac.cput.entity.Address;

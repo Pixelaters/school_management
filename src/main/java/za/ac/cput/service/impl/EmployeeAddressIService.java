@@ -1,6 +1,6 @@
 package za.ac.cput.service.impl;
 
-import za.ac.cput.entity.EmployeeAddress;
+import za.ac.cput.domain.EmployeeAddress;
 
 import java.util.List;
 

@@ -11,15 +11,9 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
-import za.ac.cput.entity.Employee;
-import za.ac.cput.entity.Name;
-import za.ac.cput.factory.EmployeeFactory;
+import za.ac.cput.domain.Employee;
 import za.ac.cput.factory.NameFactory;
 import za.ac.cput.repository.EmployeeIRepository;
-import za.ac.cput.service.impl.EmployeeIService;
-
-import java.util.regex.Pattern;
 
 import static org.junit.jupiter.api.Assertions.*;
 

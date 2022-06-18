@@ -1,6 +1,6 @@
 package za.ac.cput.service.impl;
 
-import za.ac.cput.entity.Address;
+import za.ac.cput.domain.Address;
 
 import java.util.List;
 

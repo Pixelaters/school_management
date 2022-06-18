@@ -13,8 +13,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import za.ac.cput.entity.Employee;
-import za.ac.cput.entity.Student;
+import za.ac.cput.domain.Student;
 import za.ac.cput.factory.NameFactory;
 import za.ac.cput.repository.StudentIRepository;
 

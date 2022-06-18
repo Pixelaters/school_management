@@ -1,7 +1,11 @@
 package za.ac.cput.controller;
+/* CityController.java
+Controller for the City
+Author: Ongezwa Gwaza (211272183), Ziyaad Petersen (219083479)
 
-import za.ac.cput.entity.City;
-import za.ac.cput.service.CityService;
+Date: 11 June 2022
+*/
+import za.ac.cput.domain.City;
 import za.ac.cput.service.impl.CityIService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +14,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import za.ac.cput.service.impl.EmployeeIService;
 
 
 import javax.validation.Valid;

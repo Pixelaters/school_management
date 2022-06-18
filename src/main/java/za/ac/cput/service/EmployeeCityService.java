@@ -6,15 +6,10 @@ Date: 17 June 2022
 package za.ac.cput.service;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import za.ac.cput.entity.Employee;
-import za.ac.cput.entity.EmployeeAddress;
-import za.ac.cput.entity.Name;
+import za.ac.cput.domain.Name;
 import za.ac.cput.repository.EmployeeAddressIRepository;
 import za.ac.cput.repository.EmployeeIRepository;
 import za.ac.cput.service.impl.EmployeeCityIService;

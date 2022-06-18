@@ -4,13 +4,10 @@ package za.ac.cput.factory;
   Date: 9 June 2022
   School Management
  */
-import org.hibernate.validator.internal.constraintvalidators.bv.EmailValidator;
-import za.ac.cput.entity.Employee;
-import java.util.regex.*;
-import za.ac.cput.entity.Name;
+import za.ac.cput.domain.Employee;
+import za.ac.cput.domain.Name;
 import za.ac.cput.helper.StringHelper;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class EmployeeFactory {

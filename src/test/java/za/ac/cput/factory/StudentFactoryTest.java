@@ -7,7 +7,7 @@ package za.ac.cput.factory;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import za.ac.cput.entity.Student;
+import za.ac.cput.domain.Student;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package za.ac.cput.entity;
+package za.ac.cput.domain;
 
 import javax.persistence.*;
 import java.util.Objects;

@@ -10,10 +10,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import za.ac.cput.entity.Employee;
+import za.ac.cput.domain.Employee;
 import za.ac.cput.factory.EmployeeFactory;
 import za.ac.cput.factory.NameFactory;
-import za.ac.cput.service.EmployeeService;
 
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest

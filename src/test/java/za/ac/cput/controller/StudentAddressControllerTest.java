@@ -10,13 +10,20 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.entity.EmployeeAddress;
-import za.ac.cput.entity.StudentAddress;
+import za.ac.cput.domain.EmployeeAddress;
+import za.ac.cput.domain.StudentAddress;
 import za.ac.cput.factory.*;
 
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+/* Raeece Samuels (217283764)
+  ADP3 - June Assessment 2022
+  Date: 15 June 2022
+  School Management
+ */
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(MethodOrderer.Alphanumeric.class)
 class StudentAddressControllerTest {

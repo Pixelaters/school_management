@@ -6,13 +6,11 @@ package za.ac.cput.service;
  */
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.cput.entity.Employee;
+import za.ac.cput.domain.Employee;
 import za.ac.cput.repository.EmployeeIRepository;
 import za.ac.cput.service.impl.EmployeeIService;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.regex.Pattern;
 
 @Service
 public class EmployeeService implements EmployeeIService {

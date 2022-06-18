@@ -1,9 +1,9 @@
 /* City.java
 Entity for the City
-Author: Ongezwa Gwaza (211272183)
+Author: Ongezwa Gwaza (211272183), Ziyaad Petersen(219083479), Raeece Samuels (217283764), Breyton Ernstzen (217203027)
 Date: 11 June 2022
 */
-package za.ac.cput.entity;
+package za.ac.cput.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;

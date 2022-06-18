@@ -5,9 +5,8 @@ package za.ac.cput.factory;
   Date: 9 June 2022
   School Management
  */
-import java.util.regex.*;
-import za.ac.cput.entity.Address;
-import za.ac.cput.entity.City;
+import za.ac.cput.domain.Address;
+import za.ac.cput.domain.City;
 import za.ac.cput.helper.StringHelper;
 
 public class AddressFactory {

@@ -6,8 +6,7 @@ package za.ac.cput.api;
  */
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import za.ac.cput.entity.Employee;
-import za.ac.cput.entity.EmployeeAddress;
+import za.ac.cput.domain.EmployeeAddress;
 import za.ac.cput.repository.EmployeeAddressIRepository;
 import za.ac.cput.service.EmployeeAddressService;
 

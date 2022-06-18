@@ -1,4 +1,4 @@
-package za.ac.cput.entity;
+package za.ac.cput.domain;
 /*Breyton Ernstzen (217203027)
   ADP3 - June Assessment 2022
   Date: 9 June 2022
@@ -6,7 +6,6 @@ package za.ac.cput.entity;
  */
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 import java.util.*;
 
 @Entity

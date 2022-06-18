@@ -1,6 +1,6 @@
 package za.ac.cput.service.impl;
 
-import za.ac.cput.entity.Country;
+import za.ac.cput.domain.Country;
 
 import java.util.List;
 /*

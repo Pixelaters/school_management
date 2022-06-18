@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.api.EmployeeAPI;
-import za.ac.cput.entity.Employee;
+import za.ac.cput.domain.Employee;
 import za.ac.cput.service.impl.EmployeeIService;
 
 import javax.validation.Valid;

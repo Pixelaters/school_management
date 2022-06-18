@@ -1,5 +1,5 @@
 /*
-Student Name: Nondumiso Gaga
+Student Name: Nondumiso Gaga ,Ziyaad Petersen(219083479), Raeece Samuels (217283764), Breyton Ernstzen (217203027)
 Student Number: 220430853
 Name class
 
@@ -7,7 +7,7 @@ Name class
  */
 
 
-package za.ac.cput.entity;
+package za.ac.cput.domain;
 
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;

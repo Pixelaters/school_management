@@ -1,16 +1,15 @@
 /* CityRepository.java
 Repository interface for the City
-Author: Ongezwa Gwaza (211272183)
+Author: Ongezwa Gwaza (211272183), Ziyaad Petersen(219083479)
 Date: 14 June 2022
 */
 package za.ac.cput.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import za.ac.cput.entity.City;
+import za.ac.cput.domain.City;
 
 import java.util.List;
 

@@ -4,7 +4,7 @@
 */
 package za.ac.cput.service;
 
-import za.ac.cput.entity.Name;
+import za.ac.cput.domain.Name;
 
 import java.util.List;
 

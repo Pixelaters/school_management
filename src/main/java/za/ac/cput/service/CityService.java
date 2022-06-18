@@ -1,6 +1,6 @@
 /* CityServiceImpl.java
 Service Implementation class for the City
-Author: Ongezwa Gwaza (211272183)
+Author: Ongezwa Gwaza (211272183), Ziyaad(219083479)
 Date: 14 June 2022
 */
 package za.ac.cput.service;
@@ -10,8 +10,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import za.ac.cput.entity.City;
-import za.ac.cput.entity.Country;
+import za.ac.cput.domain.City;
 import za.ac.cput.repository.CityRepository;
 import za.ac.cput.service.impl.CityIService;
 

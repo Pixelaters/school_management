@@ -11,7 +11,6 @@ import java.util.Objects;
 @Entity
 public class StudentAddress {
     @Id
-    @JoinColumn(name = "studId")
     private  String studentId;
     //@OneToOne
     //@JoinColumn(name = "studAdd_name",nullable = false)

@@ -11,5 +11,5 @@ import za.ac.cput.entity.StudentAddress;
 */
 @Repository
 public interface StudentAddressIRepository extends JpaRepository<StudentAddress , String> {
-    StudentAddress findStudentAddressByCountry(String country);
+    //StudentAddress findStudentAddressByCountry(String country);
 }

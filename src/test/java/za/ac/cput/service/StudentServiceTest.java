@@ -15,6 +15,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import za.ac.cput.entity.Employee;
 import za.ac.cput.entity.Student;
+import za.ac.cput.factory.NameFactory;
 import za.ac.cput.repository.StudentIRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -33,15 +34,15 @@ class StudentServiceTest {
     void setUp(){
         studentService = new StudentService(studentIRepository);
         student1 = new Student.Builder()
-                .studentId("217283764")
+                .studentId("258016865")
                 .email("a@gmail.com")
-                .name(null)
+                .name(NameFactory.buildName("Mikey","","Johnson"))
                 .build();
 
         student2 = new Student.Builder()
-                .studentId("2897645892")
+                .studentId("213456789")
                 .email("b@gmail.com")
-                .name(null)
+                .name(NameFactory.buildName("Jacob","Miguel","Rodriguez"))
                 .build();
 
     }
@@ -56,8 +57,8 @@ class StudentServiceTest {
                 () -> assertNotNull(student2.getStudentId()),
                 () -> assertNotNull(student1.getEmail()),
                 () -> assertNotNull(student2.getEmail()),
-                () -> assertNull(student1.getName()),
-                () -> assertNull(student2.getName())
+                () -> assertNotNull(student1.getName()),
+                () -> assertNotNull(student2.getName())
         );
 
         System.out.println("Students added....");

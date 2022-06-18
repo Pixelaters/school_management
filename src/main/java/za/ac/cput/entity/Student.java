@@ -19,7 +19,7 @@ public class Student {
         //@OneToOne
         //@JoinColumn(name = "stud_name",nullable = false)
         @Embedded
-        private  Name name;//Note this error*
+        private  Name name;
 
         protected Student(){
             //constructor
@@ -84,6 +84,7 @@ public class Student {
         }
 
         public Builder name(Name name) {
+
             this.name = name;
             return this;
         }

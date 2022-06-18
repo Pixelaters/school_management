@@ -4,12 +4,17 @@ package za.ac.cput.service.impl;
   Date: 14 June 2022
   School Management
  */
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import za.ac.cput.entity.Employee;
 
 //import java.util.List;
 import java.util.*;
 
 public interface EmployeeIService extends IService<Employee,String>{
+
+    @Query("SELECT Employee.name FROM Employee WHERE Employee.email = :email")
+    public Employee findByEmail(@Param("email") String email);
 
     public List<Employee> getAll();
 }

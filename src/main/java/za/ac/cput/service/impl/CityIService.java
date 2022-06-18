@@ -7,10 +7,16 @@ package za.ac.cput.service.impl;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import za.ac.cput.entity.City;
 import za.ac.cput.service.IService;
 
 public interface CityIService extends IService<City, String>  {
+
+
     List<City> getAll();
 
+      @Query("SELECT City.name FROM City, Country co where co.id= :countryId")
+      public List<City> findByCityByCountryId(@Param("countryId") String countryId);
 }

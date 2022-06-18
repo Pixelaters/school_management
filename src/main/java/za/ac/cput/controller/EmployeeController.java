@@ -76,4 +76,9 @@ public class EmployeeController {
         List<Employee> list = this.employeeIService.getAll();
         return ResponseEntity.ok(list);
     }
+
+    @GetMapping("getEmpByEmail")
+    public Employee findByEmail(String email){
+        return employeeIService.findByEmail(email);
+    }
 }

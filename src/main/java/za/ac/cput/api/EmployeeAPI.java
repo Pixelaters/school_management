@@ -48,6 +48,7 @@ public class EmployeeAPI {
 
     public Employee read(Employee getEmployee) {
         Optional<Employee> staffID = employeeIRepository.findById(getEmployee.getStaffId());
+        //Optional<Employee> email = Optional.ofNullable(employeeIRepository.findEmployeeByEmail(getEmployee.getEmail()));
 
             //checks if staff id exists. then returns the email
             if (staffID.isEmpty()) {

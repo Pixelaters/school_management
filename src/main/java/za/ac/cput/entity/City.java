@@ -44,8 +44,8 @@ public class City implements Serializable {// used serializable to write files t
         return name;
     }
 
-    public Country getCountry() {
-        return (Country) country;
+    public Set<Country> getCountry() {
+        return country;
     }
 
 

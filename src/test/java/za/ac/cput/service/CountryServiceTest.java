@@ -13,6 +13,7 @@ import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import za.ac.cput.entity.Country;
+import za.ac.cput.factory.CountryFactory;
 import za.ac.cput.repository.CountryRepository;
 import za.ac.cput.service.impl.CountryService;
 
@@ -36,14 +37,14 @@ public class CountryServiceTest {
     void setUp() {
         countryService = new CountryServiceImpl(countryRepository);
         country1 = new Country.Builder()
-                .setId("12")
-                .Name(null)
+                .id("12")
+                .name("South Africa")
                 .build();
 
 
         country2 = new Country.Builder()
-                .setId("13")
-                .Name(null)
+                .id("13")
+                .name("Wales")
                 .build();
     }
 

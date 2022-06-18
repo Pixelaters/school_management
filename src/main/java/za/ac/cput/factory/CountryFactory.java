@@ -20,8 +20,8 @@ public class CountryFactory {
 
 
         return new Country.Builder()
-                .setId(countryId)
-                .Name(countryName)
+                .id(countryId)
+                .name(countryName)
                 .build();
 
     }

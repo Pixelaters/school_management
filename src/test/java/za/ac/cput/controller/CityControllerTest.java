@@ -16,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import za.ac.cput.entity.City;
 import za.ac.cput.factory.CityFactory;
+import za.ac.cput.factory.CountryFactory;
 
 import java.util.Arrays;
 
@@ -33,14 +34,14 @@ public class CityControllerTest {
     @BeforeEach
     void setUp() {
         assertNotNull(cityController);
-        this.city = CityFactory.buildCity("121","breyton@gmail.com",null);
-        this.urlBase = "http://localhost:" + this.portNo + "/school_management/cities/";
+        this.city = CityFactory.buildCity("121","breyton@gmail.com", CountryFactory.builder("RSA", "South Africa"));
+        this.urlBase = "http://localhost:" + this.portNo + "/school-management/cities/";
 
     }
 
     @Test
     void a_create() {
-       String url = urlBase + "create";
+       String url = urlBase + "/create";
         System.out.println(url);
 
         ResponseEntity<City> responseEntity = this.testRestTemplate

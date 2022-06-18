@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import za.ac.cput.entity.City;
+import za.ac.cput.entity.Country;
 import za.ac.cput.repository.CityRepository;
 import za.ac.cput.service.impl.CityIService;
 
@@ -48,5 +49,11 @@ public class  CityService implements CityIService {
         return this.cityRepository.findAll();
     }
 
+    public List<City> getAllCitiesUsingJPQL(){
+        return cityRepository.getAllCitiesUsingJPQL();
+    }
 
+    public List<City> findByCityByCountryId(String countryId){
+        return cityRepository.findCityByCountryId(countryId);
+    }
 }

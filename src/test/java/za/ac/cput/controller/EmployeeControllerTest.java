@@ -112,4 +112,21 @@ class EmployeeControllerTest {
         System.out.println("Test passed...");
 
     }
+
+    @Test
+    void e_getByEmail(){
+        String url = urlBase + "getEmpByEmail";
+        System.out.println(url);
+
+        ResponseEntity<Employee[]> responseEntity = this.testRestTemplate
+                .getForEntity(url,Employee[].class);
+
+
+        assertAll(
+                () -> assertEquals(HttpStatus.OK,responseEntity.getStatusCode()),
+                () -> assertNotNull(responseEntity)
+        );
+
+        System.out.println("Test passed");
+    }
 }

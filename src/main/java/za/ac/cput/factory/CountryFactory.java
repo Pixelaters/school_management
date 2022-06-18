@@ -11,20 +11,18 @@ import za.ac.cput.helper.StringHelper;
 
 
 public class CountryFactory {
-    public static Country createCountry(String countryName, String countryId) {
-
-        if (StringHelper.isEmptyOrNull(countryId) || StringHelper.isEmptyOrNull(countryId)) {
-            throw new IllegalArgumentException(" ");
-
-        }
-
-
-        return new Country.Builder()
-                .id(countryId)
-                .name(countryName)
-                .build();
-
-    }
+//    public static Country createCountry(String countryName, String countryId) {
+//
+//        if (StringHelper.isEmptyOrNull(countryName) || StringHelper.isEmptyOrNull(countryId)) {
+//            throw new IllegalArgumentException("Country id is empty or null");
+//
+//        }
+//        return new Country.Builder()
+//                .id(countryId)
+//                .name(countryName)
+//                .build();
+//
+//    }
 
 //    public static Country builder(String s, String south_africa) {
 //

@@ -49,4 +49,9 @@ public class EmployeeService implements EmployeeIService {
     public List<Employee> getAll() {
         return this.employeeIRepository.findAll();
     }
+
+    @Override
+    public Employee findByEmail(String email) {
+        return employeeIRepository.findEmployeeByEmail(email);
+    }
 }

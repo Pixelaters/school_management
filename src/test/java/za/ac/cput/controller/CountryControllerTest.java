@@ -49,7 +49,7 @@ public class CountryControllerTest {
     @BeforeEach
     void setUp(){
         assertNotNull(countryController);
-        this.country = CountryFactory.createCountry(null , "15");
+        this.country = CountryFactory.builder("123" , "Samoa");
         this.urlBase = "http://localhost" + this.port + "/school_management/country";
     }
 

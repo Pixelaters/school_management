@@ -86,15 +86,10 @@ public class CityController {
         return ResponseEntity.ok(cities);
     }
 
-    @GetMapping("/getAllCitiesUsingJPQL")
-    public List<City> getAllUsersUsingJPQL(){
-        return cityIService.getAllCitiesUsingJPQL();
-    }
 
     @GetMapping("/getAllCitiesInCountry")
     public List<City> findByCityByCountryId(String countryId){
         return cityIService.findByCityByCountryId(countryId);
     }
 
-    
 }

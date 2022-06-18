@@ -19,9 +19,7 @@ import java.util.List;
 public interface CityRepository extends JpaRepository<City, String> {
     City findCityByName(String name);
 
-    @Query("SELECT City.name FROM City, Country co where co.id= :countryId")
-    public List<City> findCityByCountryId(@Param("countryId") String countryId);
+//    @Query("SELECT City.name FROM City, Country co where co.id= :countryId")
+     public List<City> findCityByCountryId(@Param("countryId") String countryId);
 
-    @Query("SELECT C FROM City C")
-    public List<City> getAllCitiesUsingJPQL();
 }

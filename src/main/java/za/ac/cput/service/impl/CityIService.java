@@ -13,6 +13,10 @@ import za.ac.cput.entity.City;
 import za.ac.cput.service.IService;
 
 public interface CityIService extends IService<City, String>  {
+
+    @Query("SELECT City.name FROM City, Country co where co.id= :countryId")
+    public List<City> findByCityByCountryId(@Param("countryId") String countryId);
+
     List<City> getAll();
 
     @Query("SELECT C FROM City C")

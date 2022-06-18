@@ -36,7 +36,7 @@ public class StudentAPI {
 
     }
 
-    public Student createStudent(Student student){
+    public Student create(Student student){
         Optional<Student> studId = studentIRepository.findById(student.getStudentId());
         Optional<Student> studentLastName = Optional.ofNullable(studentIRepository.findStudentByLastName(student.getName().getLastName()));
 
@@ -50,7 +50,7 @@ public class StudentAPI {
     return this.studentIRepository.save(student);
     }
 
-    public StudentAddress createStudentCountry(StudentAddress studentAddress){
+    public StudentAddress create(StudentAddress studentAddress){
         Optional<StudentAddress> studId = studentAddressIRepository.findById(studentAddress.getStudentId());
         Optional<StudentAddress> studentCountry = Optional.ofNullable(studentAddressIRepository.findStudentAddressByCountry(studentAddress.getAddress().getCity().getCountry().getName()));
 
@@ -64,13 +64,13 @@ public class StudentAPI {
         return this.studentAddressIRepository.save(studentAddress);
     }
 
-    public ResponseEntity<Student> readLastName(Student student){
-        Optional<Student> studLastName = Optional.ofNullable(this.studentService.read(student.getName().getLastName()));
+    public ResponseEntity<Student> read(Student student){
+        Optional<Student> studId = Optional.ofNullable(this.studentService.read(student.getStudentId()));
 
         try {
 
 
-        if (studLastName.isPresent()){
+        if (studId.isPresent()){
             return ResponseEntity.ok(studentService.read(student.getName().getLastName()));
         }
 
@@ -81,11 +81,11 @@ public class StudentAPI {
         return ResponseEntity.ok(studentService.read(student.getName().getLastName()));
     }
 
-    public ResponseEntity<StudentAddress> readCountry(StudentAddress studentAddress){
-        Optional<StudentAddress> studCountry = Optional.ofNullable(this.studentAddressService.read(studentAddress.getAddress().getCity().getCountry().getName()));
+    public ResponseEntity<StudentAddress> read(StudentAddress studentAddress){
+        Optional<StudentAddress> studAddId = Optional.ofNullable(this.studentAddressService.read(studentAddress.getStudentId()));
 
         try {
-            if (studCountry.isPresent()){
+            if (studAddId.isPresent()){
                 return ResponseEntity.ok(studentAddressService.read(studentAddress.getAddress().getCity().getCountry().getName()));
             }
 
@@ -98,8 +98,5 @@ public class StudentAPI {
         return ResponseEntity.ok(studentAddressService.read(studentAddress.getAddress().getCity().getCountry().getName()));
     }
 
-    public void getStudentByLastNameAndCountry(Student studentLastName,StudentAddress studcountry){
-        readLastName(studentLastName);
-        readCountry(studcountry);
-    }
+
 }

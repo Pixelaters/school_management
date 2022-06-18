@@ -40,10 +40,10 @@ class StudentAPITest {
 
     @Test
     public void create(){
-        student1 = this.studentAPI.createStudent(this.student1);
-        student2 = this.studentAPI.createStudent(this.student2);
-        studentAddress1 = this.studentAPI.createStudentCountry(this.studentAddress1);
-        studentAddress2 = this.studentAPI.createStudentCountry(this.studentAddress2);
+        student1 = this.studentAPI.create(this.student1);
+        student2 = this.studentAPI.create(this.student2);
+        studentAddress1 = this.studentAPI.create(this.studentAddress1);
+        studentAddress2 = this.studentAPI.create(this.studentAddress2);
 
         assertAll(
                 () -> assertNotNull(student1),

@@ -21,32 +21,29 @@ import za.ac.cput.service.impl.EmployeeCityIService;
 
 public class EmployeeCityService implements EmployeeCityIService {
 
-     private final EmployeeAddressIRepository employeeAddressIRepository;
+    private final EmployeeAddressIRepository employeeAddressIRepository;
     private final EmployeeIRepository employeeIRepository;
 
-     @Autowired
-     public EmployeeCityService(EmployeeAddressIRepository employeeAddressIRepository,EmployeeIRepository employeeIRepository) {
-         this.employeeAddressIRepository = employeeAddressIRepository;
-         this.employeeIRepository = employeeIRepository;
-     }
-
-
-
+    @Autowired
+    public EmployeeCityService(EmployeeAddressIRepository employeeAddressIRepository, EmployeeIRepository employeeIRepository) {
+        this.employeeAddressIRepository = employeeAddressIRepository;
+        this.employeeIRepository = employeeIRepository;
+    }
 
 
     @Override
     public List<Name> findEmployeeNamesByCityId(String cityId) {
-        List<Name> names =  new ArrayList();
-//        try {
-//            List<EmployeeAddress> employeeAddresses = employeeAddressIRepository.getEmployeeAddressesByAddress_CityId(cityId);
-//            Set<String> staffIds = new HashSet<>(employeeAddresses.stream().map((employeeAddress) -> employeeAddress.getStaffId()).collect(Collectors.toList()));
-//            List<Employee> employees = employeeIRepository.getEmployeesByStaffIdInSet(staffIds);
-//             names = employees.stream().map((employee -> employee.getName())).collect(Collectors.toList());
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//        }
-        
+        List<Name> names = new ArrayList();
+        try {
+            List<EmployeeAddress> employeeAddresses = employeeAddressIRepository.findByAddress_CityId(cityId);
+            List<String> staffIds = employeeAddresses.stream().map((employeeAddress) -> employeeAddress.getStaffId()).collect(Collectors.toList());
+            List<Employee> employees = employeeIRepository.findByStaffIdIn(staffIds);
+            names = employees.stream().map((employee -> employee.getName())).collect(Collectors.toList());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
         return names;
     }
- 
+
 }

@@ -17,7 +17,7 @@ public class Student {
         @NotNull
         private  String email;
         //@OneToOne
-        @JoinColumn(name = "stud_name",nullable = false)
+        //@JoinColumn(name = "stud_name",nullable = false)
         @Embedded
         private  Name name;
 

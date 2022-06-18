@@ -8,6 +8,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import za.ac.cput.entity.StudentAddress;
+import za.ac.cput.factory.AddressFactory;
+import za.ac.cput.factory.CityFactory;
+import za.ac.cput.factory.CountryFactory;
 import za.ac.cput.repository.StudentAddressIRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -35,12 +38,16 @@ class StudentAddressServiceTest {
 
         studentAddress1 = new StudentAddress.Builder()
                 .studentId("287564125")
-                .address(null)
+                .address(AddressFactory.build("","","95","Mavericks",4567
+                        , CityFactory.buildCity("1234","Pretoria",
+                                CountryFactory.builder("1","South Africa")) ))
                 .build();
 
         studentAddress2 = new StudentAddress.Builder()
                 .studentId("287564503")
-                .address(null)
+                .address(AddressFactory.build("A1","James","6969","Lakers",2330
+                        , CityFactory.buildCity("1235","KZN",
+                                CountryFactory.builder("1","South Africa")) ))
                 .build();
     }
 

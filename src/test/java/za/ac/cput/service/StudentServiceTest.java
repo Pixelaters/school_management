@@ -57,8 +57,8 @@ class StudentServiceTest {
                 () -> assertNotNull(student2.getStudentId()),
                 () -> assertNotNull(student1.getEmail()),
                 () -> assertNotNull(student2.getEmail()),
-                () -> assertNull(student1.getName()),
-                () -> assertNull(student2.getName())
+                () -> assertNotNull(student1.getName()),
+                () -> assertNotNull(student2.getName())
         );
 
         System.out.println("Students added....");

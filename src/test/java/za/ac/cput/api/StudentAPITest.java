@@ -1,5 +1,9 @@
 package za.ac.cput.api;
-
+/* Raeece Samuels (217283764)
+  ADP3 - June Assessment 2022
+  Date: 16 June 2022
+  School Management
+ */
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;

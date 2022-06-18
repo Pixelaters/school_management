@@ -21,7 +21,7 @@ import za.ac.cput.repository.StudentIRepository;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-@TestMethodOrder(MethodOrderer.class)
+@TestMethodOrder(MethodOrderer.Alphanumeric.class)
 class StudentServiceTest {
 
     @Mock

@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
 * */
 
 @ExtendWith(MockitoExtension.class)
-@TestMethodOrder(MethodOrderer.class)
+@TestMethodOrder(MethodOrderer.Alphanumeric.class)
 class StudentAddressServiceTest {
     @Mock
     private StudentAddressIRepository studentAddressIRepository;

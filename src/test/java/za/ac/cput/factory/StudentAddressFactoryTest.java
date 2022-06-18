@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
   Date: 11 June 2022
   School Management
  */
-@TestMethodOrder(MethodOrderer.class)
+@TestMethodOrder(MethodOrderer.Alphanumeric.class)
 class StudentAddressFactoryTest {
 
     ArrayList<StudentAddress> studentAddress = new ArrayList<>();

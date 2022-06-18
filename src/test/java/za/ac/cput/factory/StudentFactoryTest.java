@@ -12,7 +12,7 @@ import za.ac.cput.entity.Student;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
-@TestMethodOrder(MethodOrderer.class)
+@TestMethodOrder(MethodOrderer.Alphanumeric.class)
 class StudentFactoryTest {
 
     ArrayList<Student> student = new ArrayList<>();

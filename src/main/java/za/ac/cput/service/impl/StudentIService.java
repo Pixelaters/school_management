@@ -1,6 +1,6 @@
 package za.ac.cput.service.impl;
 
-import za.ac.cput.entity.Student;
+import za.ac.cput.domain.Student;
 import java.util.List;
 /*
 *  Raeece Samuels (217283764)

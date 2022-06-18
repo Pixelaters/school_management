@@ -6,7 +6,7 @@ package za.ac.cput.service.impl;
  */
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import za.ac.cput.entity.Employee;
+import za.ac.cput.domain.Employee;
 
 //import java.util.List;
 import java.util.*;

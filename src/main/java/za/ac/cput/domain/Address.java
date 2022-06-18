@@ -1,4 +1,4 @@
-package za.ac.cput.entity;
+package za.ac.cput.domain;
 
 /*Ziyaad Petersen
   ADP3 - June Assessment 2022
@@ -7,11 +7,6 @@ package za.ac.cput.entity;
  */
 
 import javax.persistence.*;
-import java.util.Objects;
-
-import lombok.Getter;
-import lombok.Setter;
-import za.ac.cput.entity.City;
 
 @Embeddable
 public class Address {

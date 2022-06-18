@@ -1,5 +1,9 @@
 package za.ac.cput.helper;
 
+/* Helper class
+    Raeece Samuels (217283764)
+ */
+
 import org.apache.commons.lang3.StringUtils;
 
 public class StringHelper {

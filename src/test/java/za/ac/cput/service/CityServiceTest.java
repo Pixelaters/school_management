@@ -10,8 +10,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import za.ac.cput.entity.City;
-import za.ac.cput.entity.Country;
+import za.ac.cput.domain.City;
+import za.ac.cput.domain.Country;
 import za.ac.cput.factory.CityFactory;
 import za.ac.cput.repository.CityRepository;
 import za.ac.cput.service.impl.CityIService;

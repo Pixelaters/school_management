@@ -4,8 +4,8 @@ package za.ac.cput.factory;
   Date: 9 June 2022
   School Management
  */
-import za.ac.cput.entity.Address;
-import za.ac.cput.entity.EmployeeAddress;
+import za.ac.cput.domain.Address;
+import za.ac.cput.domain.EmployeeAddress;
 import za.ac.cput.helper.StringHelper;
 
 public class EmployeeAddressFactory {

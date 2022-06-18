@@ -6,8 +6,8 @@ Date: 13 June 2022
 package za.ac.cput.factory;
 
 
-import za.ac.cput.entity.City;
-import za.ac.cput.entity.Country;
+import za.ac.cput.domain.City;
+import za.ac.cput.domain.Country;
 import za.ac.cput.helper.StringHelper;
 
 public class CityFactory {

@@ -1,7 +1,11 @@
 package za.ac.cput.service;
 
-import za.ac.cput.entity.City;
-import za.ac.cput.entity.Country;
+/*Ziyaad Petersen
+  ADP3 - June Assessment 2022
+  Date: 9 June 2022
+  School Management*/
+
+import za.ac.cput.domain.City;
 
 import java.util.List;
 

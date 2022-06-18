@@ -1,29 +1,22 @@
 package za.ac.cput.controller;
 /*
 Ethan George
-student number  218008430
+student number  218008430,Ziyaad Petersen(219083479), Raeece Samuels (217283764), Breyton Ernstzen (217203027)
  */
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.entity.Country;
+import za.ac.cput.domain.Country;
 import za.ac.cput.factory.CountryFactory;
-import za.ac.cput.repository.CountryRepository;
-import za.ac.cput.service.CountryServiceImpl;
-import za.ac.cput.service.impl.CountryService;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;

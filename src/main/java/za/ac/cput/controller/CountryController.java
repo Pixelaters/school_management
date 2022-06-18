@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import za.ac.cput.entity.Country;
+import za.ac.cput.domain.Country;
 import za.ac.cput.service.impl.CountryService;
 
 import javax.validation.Valid;

@@ -7,7 +7,7 @@ package za.ac.cput.service.impl;
 
 import java.util.List;
 
-import za.ac.cput.entity.Name;
+import za.ac.cput.domain.Name;
 
 public interface EmployeeCityIService {
     List<Name> findEmployeeNamesByCityId(String id);

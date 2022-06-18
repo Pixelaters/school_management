@@ -4,8 +4,8 @@ package za.ac.cput.factory;
   Date: 9 June 2022
   School Management
  */
-import za.ac.cput.entity.Name;
-import za.ac.cput.entity.Student;
+import za.ac.cput.domain.Name;
+import za.ac.cput.domain.Student;
 import za.ac.cput.helper.StringHelper;
 public class  StudentFactory {
     public static Student build(String studentId, String email, Name name){

@@ -1,6 +1,6 @@
 /* CityController.java
  Test class for the City Controller
-Author: Ongezwa Gwaza (211272183)
+Author: Ongezwa Gwaza (211272183),Ziyaad Petersen(219083479), Raeece Samuels (217283764), Breyton Ernstzen (217203027)
 Date: 17 June 2022
 */
 package za.ac.cput.controller;
@@ -14,7 +14,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.entity.City;
+import za.ac.cput.domain.City;
 import za.ac.cput.factory.CityFactory;
 import za.ac.cput.factory.CountryFactory;
 

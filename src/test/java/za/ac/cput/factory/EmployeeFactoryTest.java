@@ -4,12 +4,10 @@ package za.ac.cput.factory;
   Date: 9 June 2022
   School Management
  */
-import org.junit.jupiter.api.MethodDescriptor;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import za.ac.cput.entity.Employee;
-import za.ac.cput.entity.Name;
+import za.ac.cput.domain.Employee;
 
 import java.util.ArrayList;
 

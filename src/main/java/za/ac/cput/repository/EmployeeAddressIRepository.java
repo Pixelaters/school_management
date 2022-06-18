@@ -2,9 +2,7 @@ package za.ac.cput.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import za.ac.cput.entity.EmployeeAddress;
-
-import java.util.List;
+import za.ac.cput.domain.EmployeeAddress;
 
 /*Breyton Ernstzen (217203027)
   ADP3 - June Assessment 2022

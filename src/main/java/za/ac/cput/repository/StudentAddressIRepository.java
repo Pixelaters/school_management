@@ -2,7 +2,7 @@ package za.ac.cput.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import za.ac.cput.entity.StudentAddress;
+import za.ac.cput.domain.StudentAddress;
 /*
  Raeece Samuels (217283764)
   ADP3 - June Assessment 2022

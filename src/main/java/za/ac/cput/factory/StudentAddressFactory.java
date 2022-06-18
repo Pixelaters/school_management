@@ -5,9 +5,9 @@ package za.ac.cput.factory;
   School Management
  */
 
-import za.ac.cput.entity.StudentAddress;
+import za.ac.cput.domain.StudentAddress;
 import za.ac.cput.helper.StringHelper;
-import za.ac.cput.entity.Address;
+import za.ac.cput.domain.Address;
 public class StudentAddressFactory {
     public static StudentAddress build(String studentId,Address address){
         StringHelper.checkStringParam("3896578924",studentId);

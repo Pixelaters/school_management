@@ -41,7 +41,7 @@ public class CityControllerTest {
 
     @Test
     void a_create() {
-        String url = urlBase + "/create";
+       String url = urlBase + "/create";
         System.out.println(url);
 
         ResponseEntity<City> responseEntity = this.testRestTemplate

@@ -1,6 +1,7 @@
 package za.ac.cput.controller;
 
 import za.ac.cput.entity.City;
+import za.ac.cput.service.CityService;
 import za.ac.cput.service.impl.CityIService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,6 +85,7 @@ public class CityController {
         List<City> cities = cityIService.getAll();
         return ResponseEntity.ok(cities);
     }
+
 
     @GetMapping("/getAllCitiesInCountry")
     public List<City> findByCityByCountryId(String countryId){
